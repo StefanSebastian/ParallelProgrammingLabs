@@ -1,6 +1,7 @@
-package lab1.matrixOperations;
+package lab1.matrixOperations.add;
 
 import lab1.Matrix;
+import lab1.matrixOperations.IMatrixOperation;
 
 /**
  * Created by Sebi on 06-Oct-17.

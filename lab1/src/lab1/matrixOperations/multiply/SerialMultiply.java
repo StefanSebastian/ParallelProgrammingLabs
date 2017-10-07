@@ -1,6 +1,7 @@
-package lab1.matrixOperations;
+package lab1.matrixOperations.multiply;
 
 import lab1.Matrix;
+import lab1.matrixOperations.IMatrixOperation;
 
 /**
  * Created by Sebi on 07-Oct-17.
@@ -21,6 +22,8 @@ public class SerialMultiply implements IMatrixOperation {
 
     @Override
     public Matrix calculate(Matrix a, Matrix b, Integer nrThreads) {
+        System.out.println("Running serial multiply");
+
         if (a.getCols() != b.getRows()){
             System.out.println("Invalid matrixes");
             return null;

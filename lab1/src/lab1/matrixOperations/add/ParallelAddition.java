@@ -1,4 +1,4 @@
-package lab1.matrixOperations.parallelAdd;
+package lab1.matrixOperations.add;
 
 import lab1.Matrix;
 import lab1.matrixOperations.IMatrixOperation;

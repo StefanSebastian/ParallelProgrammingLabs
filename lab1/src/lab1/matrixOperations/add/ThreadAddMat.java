@@ -1,4 +1,4 @@
-package lab1.matrixOperations.parallelAdd;
+package lab1.matrixOperations.add;
 
 /**
  * Created by Sebi on 06-Oct-17.
