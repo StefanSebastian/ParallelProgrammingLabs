@@ -1,7 +1,7 @@
 package lab1.matrixOperations;
 
-import lab1.IO.MatrixFileReader;
-import lab1.IO.MatrixFileWriter;
+import lab1.utils.MatrixFileReader;
+import lab1.utils.MatrixFileWriter;
 import lab1.Matrix;
 
 /**

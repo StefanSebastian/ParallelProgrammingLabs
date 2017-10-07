@@ -43,7 +43,7 @@ public class ThreadMultiplyMat implements Runnable {
         int endRow = end / cols;
         int endCol = end % cols;
 
-        System.out.println("Start row: " + startRow + " start col : " + startCol + " end row " + endRow + " endcol " + endCol);
+       // System.out.println("Start row: " + startRow + " start col : " + startCol + " end row " + endRow + " endcol " + endCol);
 
         int i = startRow; int j = startCol;
         while (!(i == endRow && j == endCol)){

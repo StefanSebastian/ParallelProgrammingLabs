@@ -29,6 +29,9 @@ public class SerialMultiply implements IMatrixOperation {
             return null;
         }
 
+        // time stamp
+        long before = System.currentTimeMillis();
+
         int rows = a.getRows();
         int cols = b.getCols();
         double[][] res = new double[rows][cols];
@@ -38,6 +41,9 @@ public class SerialMultiply implements IMatrixOperation {
                 res[i][j] = dotProduct(a, b, i, j);
             }
         }
+
+        long after = System.currentTimeMillis();
+        System.out.println("\nSerial multiply ran for " + (after - before) + " milis\n");
 
         return new Matrix(rows, cols, res);
     }

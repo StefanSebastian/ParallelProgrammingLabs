@@ -11,6 +11,7 @@ public class ParallelMultiply implements IMatrixOperation {
     public Matrix calculate(Matrix a, Matrix b, Integer nrThreads) {
         System.out.println("Running parallel multiply with " + nrThreads + " threads");
 
+        // checks valid matrixes
         if (a.getCols() != b.getRows()){
             System.out.println("Invalid matrixes");
             return null;
@@ -22,10 +23,14 @@ public class ParallelMultiply implements IMatrixOperation {
         double[][] res = new double[rows][cols];
         Matrix resMat = new Matrix(rows, cols, res);
 
+        // checks valid nr of threads
         if (nrThreads < 1 || nrThreads > len){
             System.out.println("Invalid nr of threads");
             return null;
         }
+
+        // timestamp
+        long before = System.currentTimeMillis();
 
         // thread operations
         int elemPerTh = len / nrThreads;
@@ -45,7 +50,7 @@ public class ParallelMultiply implements IMatrixOperation {
             end += elemPerTh;
         }
 
-
+        // wait all threads
         for (int i = 0; i < nrThreads; i++){
             try {
                 threads[i].join();
@@ -53,6 +58,9 @@ public class ParallelMultiply implements IMatrixOperation {
                 e.printStackTrace();
             }
         }
+
+        long after = System.currentTimeMillis();
+        System.out.println("\nParallel multiply ran for " + (after - before) + " milis\n");
 
         return resMat;
     }
