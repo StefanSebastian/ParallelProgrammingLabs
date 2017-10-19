@@ -25,6 +25,7 @@ public:
 	ComplexNumber operator*(const ComplexNumber& nr);
 	void operator=(const ComplexNumber& nr);
 	bool operator==(const ComplexNumber& nr) const;
+	bool operator!=(const ComplexNumber& nr) const;
 
 	std::string toString();
 };

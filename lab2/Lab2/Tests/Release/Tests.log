@@ -1,0 +1,10 @@
+﻿  testOperations.cpp
+LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
+     Creating library E:\Info\anu3\progr paralela\labs\ParallelProgrammingLabs\lab2\Lab2\Release\Tests.lib and object E:\Info\anu3\progr paralela\labs\ParallelProgrammingLabs\lab2\Lab2\Release\Tests.exp
+  Generating code
+  1 of 912 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  Tests.vcxproj -> E:\Info\anu3\progr paralela\labs\ParallelProgrammingLabs\lab2\Lab2\Release\Tests.dll
+  Tests.vcxproj -> E:\Info\anu3\progr paralela\labs\ParallelProgrammingLabs\lab2\Lab2\Release\Tests.pdb (Full PDB)

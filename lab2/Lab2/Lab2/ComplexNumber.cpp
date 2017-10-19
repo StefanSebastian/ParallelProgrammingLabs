@@ -58,6 +58,11 @@ bool ComplexNumber::operator==(const ComplexNumber & nr) const
 	return a == nr.getA() && b == nr.getB();
 }
 
+bool ComplexNumber::operator!=(const ComplexNumber & nr) const
+{
+	return !operator==(nr);
+}
+
 std::string ComplexNumber::toString()
 {
 	return std::to_string(a) + " " + std::to_string(b) + "i";

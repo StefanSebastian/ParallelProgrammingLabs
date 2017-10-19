@@ -4,6 +4,7 @@
 #include<chrono>
 #include "Matrix.h"
 
+
 template <class T>
 class  ParallelCalculator {
 private:
@@ -24,6 +25,7 @@ inline void ParallelCalculator<T>::worker(
 	int end, 
 	std::function<T(Matrix<T>&, Matrix<T>&, int, int)> operatorFunction)
 {
+	Logger::WriteMessage(std::string("worker started").c_str());
 	int cols = result.getCols();
 	int startRow = start / cols;
 	int startCol = start % cols;
@@ -32,7 +34,6 @@ inline void ParallelCalculator<T>::worker(
 
 	int i = startRow; int j = startCol;
 	while (!(i == endRow && j == endCol)) {
-
 		result.setElement(i, j, operatorFunction(m1, m2, i, j));
 
 		if (j < cols - 1) {
@@ -92,7 +93,7 @@ inline void ParallelCalculator<T>::calculate(Matrix<T>& m1, Matrix<T>& m2, Matri
 
 	// ending timestamp
 	auto duration = std::chrono::high_resolution_clock::now() - startTime;
-	std::cout << std::chrono::duration<double, std::milli>(duration).count() << "\n"; 
-
+	double time = std::chrono::duration<double, std::milli>(duration).count(); 
+	Logger::WriteMessage((std::to_string(time) + " for " + std::to_string(nrThreads) + "threads").c_str());
 
 }
