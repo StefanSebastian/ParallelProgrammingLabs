@@ -1,21 +1,30 @@
 #pragma once
 
 #include<string>
-using std::string;
-using std::to_string;
 
-class ComplexNumber {
+/*
+Complex number class
+exported as dll
+*/
+class __declspec(dllexport) ComplexNumber {
 private:
 	double a;
 	double b;
 public:
-	void setA(double _a);
-	double getA();
-	void setB(double _b);
-	double getB();
+	ComplexNumber();
+	ComplexNumber(double a, double b);
+	ComplexNumber(const ComplexNumber& nr);
+	~ComplexNumber() = default;
+
+	void setA(double a);
+	double getA() const;
+	void setB(double b);
+	double getB() const;
 
 	ComplexNumber operator+(const ComplexNumber& nr);
 	ComplexNumber operator*(const ComplexNumber& nr);
+	void operator=(const ComplexNumber& nr);
+	bool operator==(const ComplexNumber& nr) const;
 
-	string toString();
+	std::string toString();
 };

@@ -1,42 +1,64 @@
 #include "ComplexNumber.h"
 
-void ComplexNumber::setA(double _a)
+ComplexNumber::ComplexNumber() :
+	a {0},
+	b {0}
 {
-	a = _a;
+}
+ ComplexNumber::ComplexNumber(double a, double b) :
+	a {a},
+	b {b}
+{
 }
 
-double ComplexNumber::getA()
+ComplexNumber::ComplexNumber(const ComplexNumber & nr) :
+	a { nr.a },
+	b { nr.b }
+{
+}
+
+void ComplexNumber::setA(double a)
+{
+	this->a = a;
+}
+
+double ComplexNumber::getA() const
 {
 	return a;
 }
 
-void ComplexNumber::setB(double _b)
+void ComplexNumber::setB(double b)
 {
-	b = _b;
+	this->b = b;
 }
 
-double ComplexNumber::getB()
+double ComplexNumber::getB() const
 {
 	return b;
 }
 
 ComplexNumber ComplexNumber::operator+(const ComplexNumber & nr)
 {
-	ComplexNumber result;
-	result.a = a + nr.a;
-	result.b = b + nr.b;
-	return result;
+	return ComplexNumber(a + nr.a, b + nr.b);
 }
 
 ComplexNumber ComplexNumber::operator*(const ComplexNumber & nr)
 {
-	ComplexNumber result;
-	result.a = a * nr.a - b * nr.b;
-	result.b = a * nr.b + b * nr.a;
-	return result;
+	return ComplexNumber(a * nr.a - b * nr.b, a * nr.b + b * nr.a);
 }
 
-string ComplexNumber::toString()
+void ComplexNumber::operator=(const ComplexNumber & nr)
 {
-	return to_string(a) + " " + to_string(b) + "i";
+	this->a = nr.a;
+	this->b = nr.b;
+}
+
+bool ComplexNumber::operator==(const ComplexNumber & nr) const
+{
+	return a == nr.getA() && b == nr.getB();
+}
+
+std::string ComplexNumber::toString()
+{
+	return std::to_string(a) + " " + std::to_string(b) + "i";
 }
