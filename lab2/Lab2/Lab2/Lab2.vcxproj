@@ -144,12 +144,14 @@
   <ItemGroup>
     <ClCompile Include="ComplexNumber.cpp" />
     <ClCompile Include="MatrixGenerator.cpp" />
+    <ClCompile Include="MatrixUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ComplexNumber.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="MatrixGenerator.h" />
     <ClInclude Include="MatrixOperations.h" />
+    <ClInclude Include="MatrixUtils.h" />
     <ClInclude Include="ParallelCalculator.h" />
     <ClInclude Include="SerialMatrixOperations.h" />
   </ItemGroup>

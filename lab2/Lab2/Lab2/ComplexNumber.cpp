@@ -65,5 +65,8 @@ bool ComplexNumber::operator!=(const ComplexNumber & nr) const
 
 std::string ComplexNumber::toString()
 {
-	return std::to_string(a) + " " + std::to_string(b) + "i";
+	if (b > 0) {
+		return std::to_string(a) + "+" + std::to_string(b) + "i";
+	}
+	return std::to_string(a) + "-" + std::to_string(b) + "i";
 }

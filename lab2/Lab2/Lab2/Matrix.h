@@ -21,6 +21,7 @@ public:
 	__declspec(dllexport) void setElement(int i, int j, T element);
 	__declspec(dllexport) int getRows();
 	__declspec(dllexport) int getCols();
+	__declspec(dllexport) void setData(std::vector<std::vector<T>> data);
 
 	__declspec(dllexport) bool operator==(const Matrix& other) const;
 };
@@ -58,6 +59,12 @@ inline  int Matrix<T>::getCols()
 }
 
 template<class T>
+inline void Matrix<T>::setData(std::vector<std::vector<T>> data)
+{
+	this->data = data;
+}
+
+template<class T>
 inline bool Matrix<T>::operator==(const Matrix & other) const
 {
 	if (rows != other.rows) {
@@ -75,5 +82,6 @@ inline bool Matrix<T>::operator==(const Matrix & other) const
 	}
 	return true;
 }
+
 
 
