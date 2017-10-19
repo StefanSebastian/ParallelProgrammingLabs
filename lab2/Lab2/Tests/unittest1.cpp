@@ -41,6 +41,9 @@ namespace Tests
 		{
 			MatrixGenerator mg = MatrixGenerator();
 			Matrix<ComplexNumber> matrix = mg.getRandomComplexNumberMatrix(4, 4);
+			Assert::IsTrue(matrix.getCols() == 4);
+			Assert::IsTrue(matrix.getRows() == 4);
+
 			for (int i = 0; i < matrix.getRows(); i++) {
 				for (int j = 0; j < matrix.getCols(); j++) {
 					std::cout << matrix.getElement(i, j).toString() << " ";

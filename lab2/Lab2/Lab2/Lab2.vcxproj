@@ -149,7 +149,9 @@
     <ClInclude Include="ComplexNumber.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="MatrixGenerator.h" />
+    <ClInclude Include="MatrixOperations.h" />
     <ClInclude Include="ParallelCalculator.h" />
+    <ClInclude Include="SerialMatrixOperations.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

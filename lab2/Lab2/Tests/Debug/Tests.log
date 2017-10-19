@@ -1,28 +1,4 @@
-﻿  unittest1.cpp
-e:\info\anu3\progr paralela\labs\parallelprogramminglabs\lab2\lab2\lab2\matrix.h(8): warning C4251: 'Matrix<T>::data': class 'std::vector<std::vector<T,std::allocator<_Ty>>,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'Matrix<T>'
-          with
-          [
-              _Ty=std::vector<T,std::allocator<_Ty>>
-          ]
-  e:\info\anu3\progr paralela\labs\parallelprogramminglabs\lab2\lab2\lab2\matrix.h(8): note: see declaration of 'std::vector<std::vector<T,std::allocator<_Ty>>,std::allocator<_Ty>>'
-          with
-          [
-              _Ty=std::vector<T,std::allocator<_Ty>>
-          ]
-  e:\info\anu3\progr paralela\labs\parallelprogramminglabs\lab2\lab2\lab2\matrix.h(19): note: see reference to class template instantiation 'Matrix<T>' being compiled
-e:\info\anu3\progr paralela\labs\parallelprogramminglabs\lab2\lab2\lab2\matrix.h(8): warning C4251: 'Matrix<ComplexNumber>::data': class 'std::vector<std::vector<T,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>' needs to have dll-interface to be used by clients of class 'Matrix<ComplexNumber>'
-          with
-          [
-              T=ComplexNumber,
-              _Ty=ComplexNumber
-          ]
-  e:\info\anu3\progr paralela\labs\parallelprogramminglabs\lab2\lab2\lab2\matrix.h(8): note: see declaration of 'std::vector<std::vector<T,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>'
-          with
-          [
-              T=ComplexNumber,
-              _Ty=ComplexNumber
-          ]
-  e:\info\anu3\progr paralela\labs\parallelprogramminglabs\lab2\lab2\tests\unittest1.cpp(30): note: see reference to class template instantiation 'Matrix<ComplexNumber>' being compiled
+﻿  testOperations.cpp
      Creating library E:\Info\anu3\progr paralela\labs\ParallelProgrammingLabs\lab2\Lab2\Debug\Tests.lib and object E:\Info\anu3\progr paralela\labs\ParallelProgrammingLabs\lab2\Lab2\Debug\Tests.exp
   Tests.vcxproj -> E:\Info\anu3\progr paralela\labs\ParallelProgrammingLabs\lab2\Lab2\Debug\Tests.dll
   Tests.vcxproj -> E:\Info\anu3\progr paralela\labs\ParallelProgrammingLabs\lab2\Lab2\Debug\Tests.pdb (Partial PDB)

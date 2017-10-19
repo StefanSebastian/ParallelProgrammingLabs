@@ -36,3 +36,16 @@ Matrix<double> MatrixGenerator::getRandomDoubleMatrix(int rows, int cols)
 
 	return res;
 }
+
+Matrix<int> MatrixGenerator::getRandomIntMatrix(int rows, int cols)
+{
+	Matrix<int> res = Matrix<int>(rows, cols);
+
+	for (int i = 0; i < rows; i++) {
+		for (int j = 0; j < cols; j++) {
+			res.setElement(i, j, (int)getRandomInRange(1, 10));
+		}
+	}
+
+	return res;
+}

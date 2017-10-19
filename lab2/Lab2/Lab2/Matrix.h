@@ -7,19 +7,22 @@ Generic matrix class
 exported as dll
 */
 template <class T>
-class __declspec(dllexport) Matrix {
+class Matrix {
 private:
 	std::vector<std::vector<T>> data;
 	int rows;
 	int cols;
 public:
-	Matrix() = delete;
-	Matrix(int rows, int cols);
-	T getElement(int i, int j);
-	void setElement(int i, int j, T element);
-	int getRows();
-	int getCols();
+	__declspec(dllexport) Matrix() = delete;
+	__declspec(dllexport) Matrix(int rows, int cols);
+	__declspec(dllexport) ~Matrix() = default;
 
+	__declspec(dllexport) T getElement(int i, int j);
+	__declspec(dllexport) void setElement(int i, int j, T element);
+	__declspec(dllexport) int getRows();
+	__declspec(dllexport) int getCols();
+
+	__declspec(dllexport) bool operator==(const Matrix& other) const;
 };
 
 template<class T>
@@ -53,3 +56,24 @@ inline  int Matrix<T>::getCols()
 {
 	return cols;
 }
+
+template<class T>
+inline bool Matrix<T>::operator==(const Matrix & other) const
+{
+	if (rows != other.rows) {
+		return false;
+	}
+	if (cols != other.cols) {
+		return false;
+	}
+	for (int i = 0; i < rows; i++) {
+		for (int j = 0; j < cols; j++) {
+			if (data[i][j] != other.data[i][j]) {
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
+
