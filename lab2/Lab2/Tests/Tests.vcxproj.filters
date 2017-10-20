@@ -32,5 +32,8 @@
     <ClCompile Include="testAdd.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="testMultiply.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

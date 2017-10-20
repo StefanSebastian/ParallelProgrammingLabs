@@ -19,4 +19,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="serial.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="parallel.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="mat1.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="mat2.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+  </ItemGroup>
 </Project>

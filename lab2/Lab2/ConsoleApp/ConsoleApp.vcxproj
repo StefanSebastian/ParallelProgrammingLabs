@@ -151,6 +151,12 @@
       <Project>{939f066e-f73e-4c29-b066-9e82f7fb0faf}</Project>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="mat1.txt" />
+    <Text Include="mat2.txt" />
+    <Text Include="parallel.txt" />
+    <Text Include="serial.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
