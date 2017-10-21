@@ -3,6 +3,9 @@
 #include "Matrix.h"
 #include "ComplexNumber.h"
 
+/*
+Generates random matrixes of given size
+*/
 class __declspec(dllexport) MatrixGenerator {
 private:
 	double getRandomInRange(double start, double end);

@@ -4,14 +4,23 @@
 #include<chrono>
 #include "Matrix.h"
 
-
+/*
+splits a matrix and assigns parallel workers for each partition
+every worker applies a given operation for each cell of the result matrix
+*/
 template <class T>
 class  ParallelCalculator {
 private:
+	/*
+	worker method - called by each thread
+	*/
 	__declspec(dllexport) static void worker(Matrix<T>& m1, Matrix<T>& m2, Matrix<T>& result, int start, int end,
 		std::function<T(Matrix<T>&, Matrix<T>&, int, int)> operatorFunction);
 public:
-	__declspec(dllexport) static void calculate(Matrix<T>& m1, Matrix<T>& m2, Matrix<T>& result, int nrThreads,
+	/*
+	splits a matrix and assigns workers
+	*/
+	__declspec(dllexport) static double calculate(Matrix<T>& m1, Matrix<T>& m2, Matrix<T>& result, int nrThreads,
 		std::function<T(Matrix<T>&, Matrix<T>&, int, int)> operatorFunction);
 };
 
@@ -25,7 +34,7 @@ inline void ParallelCalculator<T>::worker(
 	int end, 
 	std::function<T(Matrix<T>&, Matrix<T>&, int, int)> operatorFunction)
 {
-	Logger::WriteMessage(std::string("worker started").c_str());
+	//Logger::WriteMessage(std::string("worker started").c_str());
 	int cols = result.getCols();
 	int startRow = start / cols;
 	int startCol = start % cols;
@@ -48,7 +57,7 @@ inline void ParallelCalculator<T>::worker(
 
 
 template<class T>
-inline void ParallelCalculator<T>::calculate(Matrix<T>& m1, Matrix<T>& m2, Matrix<T>& result, int nrThreads, std::function<T(Matrix<T>&, Matrix<T>&, int, int)> operatorFunction)
+inline double ParallelCalculator<T>::calculate(Matrix<T>& m1, Matrix<T>& m2, Matrix<T>& result, int nrThreads, std::function<T(Matrix<T>&, Matrix<T>&, int, int)> operatorFunction)
 {
 	
 	int rows = result.getRows();
@@ -56,7 +65,7 @@ inline void ParallelCalculator<T>::calculate(Matrix<T>& m1, Matrix<T>& m2, Matri
 	int len = rows * cols;
 	if (nrThreads < 1 || nrThreads > len) {
 		std::cout << "Invalid number of threads";
-		return;
+		return -1;
 	}
 	
 	// timestamp
@@ -94,6 +103,6 @@ inline void ParallelCalculator<T>::calculate(Matrix<T>& m1, Matrix<T>& m2, Matri
 	// ending timestamp
 	auto duration = std::chrono::high_resolution_clock::now() - startTime;
 	double time = std::chrono::duration<double, std::milli>(duration).count(); 
-	Logger::WriteMessage((std::to_string(time) + " for " + std::to_string(nrThreads) + "threads").c_str());
-
+	//Logger::WriteMessage((std::to_string(time) + " for " + std::to_string(nrThreads) + "threads").c_str());
+	return time;
 }

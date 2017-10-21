@@ -68,5 +68,5 @@ std::string ComplexNumber::toString()
 	if (b > 0) {
 		return std::to_string(a) + "+" + std::to_string(b) + "i";
 	}
-	return std::to_string(a) + "-" + std::to_string(b) + "i";
+	return std::to_string(a) + std::to_string(b) + "i";
 }

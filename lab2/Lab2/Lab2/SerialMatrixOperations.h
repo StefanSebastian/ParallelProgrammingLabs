@@ -3,15 +3,19 @@
 #include "Matrix.h"
 #include<functional>
 
+/*
+serial operations 
+applies a generic function for each cell of the result matrix
+*/
 template <class T>
 class __declspec(dllexport) SerialMatrixOperations{
 public:
-	static void calculate(Matrix<T>& m1, Matrix<T>& m2, Matrix<T>& res,
+	static double calculate(Matrix<T>& m1, Matrix<T>& m2, Matrix<T>& res,
 		std::function<T(Matrix<T>&, Matrix<T>&, int, int)> operatorFunction);
 };
 
 template <class T>
-inline void SerialMatrixOperations<T>::calculate(
+inline double SerialMatrixOperations<T>::calculate(
 	Matrix<T>& m1, 
 	Matrix<T>& m2, 
 	Matrix<T>& res, 
@@ -30,6 +34,6 @@ inline void SerialMatrixOperations<T>::calculate(
 	// ending timestamp
 	auto duration = std::chrono::high_resolution_clock::now() - startTime;
 	double time = std::chrono::duration<double, std::milli>(duration).count();
-	Logger::WriteMessage((std::to_string(time) + " serial").c_str());
-
+	//Logger::WriteMessage((std::to_string(time) + " serial").c_str());
+	return time;
 }

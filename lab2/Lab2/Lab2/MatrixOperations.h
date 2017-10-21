@@ -3,7 +3,7 @@
 #include "Matrix.h"
 
 /*
-Defines a set of matrix operations
+Defines a set of generic matrix operations
 */
 template <class T>
 class __declspec(dllexport) MatrixOperations {
@@ -18,7 +18,6 @@ inline T MatrixOperations<T>::addition(Matrix<T>& m1, Matrix<T>& m2, int i, int 
 {
 	if (m1.getRows() != m2.getRows() || m1.getCols() != m2.getCols()) {
 		std::cout << "Invalid input";
-		throw std::invalid_argument("Matrixes should have the same size");
 	}
 	return m1.getElement(i, j) + m2.getElement(i, j);
 }
@@ -28,7 +27,6 @@ inline T MatrixOperations<T>::multiplication(Matrix<T>& m1, Matrix<T>& m2, int i
 {
 	if (m1.getCols() != m2.getRows()) {
 		std::cout << "Invalid input";
-		throw std::invalid_argument("The columns for the first matrix should match the rows for the second");
 	}
 	T product = T();
 	for (int i = 0; i < m1.getCols(); i++) {

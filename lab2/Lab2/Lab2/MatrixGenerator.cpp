@@ -17,7 +17,14 @@ Matrix<ComplexNumber> MatrixGenerator::getRandomComplexNumberMatrix(int rows, in
 		for (int j = 0; j < cols; j++) {
 			double a = getRandomInRange(1, 10);
 			double b = getRandomInRange(1, 10);
-			res.setElement(i, j, ComplexNumber(a, b));
+			double sign = getRandomInRange(0, 1);
+			if (sign > 0.5) {
+				res.setElement(i, j, ComplexNumber(a, b));
+			}
+			else {
+				res.setElement(i, j, ComplexNumber(a, -b));
+			}
+			
 		}
 	}
 

@@ -32,12 +32,15 @@ namespace Tests
 
 
 			Matrix<int> m3 = Matrix<int>(3, 3);
-			ParallelCalculator<int>::calculate(m1, m2, m3, 3, MatrixOperations<int>::multiplication);
+			double parT = ParallelCalculator<int>::calculate(m1, m2, m3, 3, MatrixOperations<int>::multiplication);
 
 			Matrix<int> m4 = Matrix<int>(3, 3);
-			SerialMatrixOperations<int>::calculate(m1, m2, m4, MatrixOperations<int>::multiplication);
+			double serialT = SerialMatrixOperations<int>::calculate(m1, m2, m4, MatrixOperations<int>::multiplication);
 
 			Assert::IsTrue(m3 == m4);
+
+			Logger::WriteMessage((std::to_string(parT) + " for 3 threads").c_str());
+			Logger::WriteMessage((std::to_string(serialT) + " for serial operations").c_str());
 		}
 
 		TEST_METHOD(MultiplyTwoComplexMatrixes)
@@ -47,12 +50,15 @@ namespace Tests
 			Matrix<ComplexNumber> m1 = mg.getRandomComplexNumberMatrix(3, 3);
 			Matrix<ComplexNumber> m2 = mg.getRandomComplexNumberMatrix(3, 3);
 			Matrix<ComplexNumber> m3 = Matrix<ComplexNumber>(3, 3);
-			ParallelCalculator<ComplexNumber>::calculate(m1, m2, m3, 3, MatrixOperations<ComplexNumber>::multiplication);
+			double parT = ParallelCalculator<ComplexNumber>::calculate(m1, m2, m3, 5, MatrixOperations<ComplexNumber>::multiplication);
 
 			Matrix<ComplexNumber> m4 = Matrix<ComplexNumber>(3, 3);
-			SerialMatrixOperations<ComplexNumber>::calculate(m1, m2, m4, MatrixOperations<ComplexNumber>::multiplication);
+			double serialT = SerialMatrixOperations<ComplexNumber>::calculate(m1, m2, m4, MatrixOperations<ComplexNumber>::multiplication);
 
 			Assert::IsTrue(m3 == m4);
+
+			Logger::WriteMessage((std::to_string(parT) + " for 5 threads").c_str());
+			Logger::WriteMessage((std::to_string(serialT) + " for serial operations").c_str());
 		}
 
 		TEST_METHOD(MultiplyTwoInt2)
@@ -73,14 +79,17 @@ namespace Tests
 			expected.setData(expectedValues);
 
 			Matrix<int> m3 = Matrix<int>(4, 3);
-			ParallelCalculator<int>::calculate(m1, m2, m3, 8, MatrixOperations<int>::multiplication);
+			double parT = ParallelCalculator<int>::calculate(m1, m2, m3, 8, MatrixOperations<int>::multiplication);
 
 			Matrix<int> m4 = Matrix<int>(4, 3);
-			SerialMatrixOperations<int>::calculate(m1, m2, m4, MatrixOperations<int>::multiplication);
+			double serialT = SerialMatrixOperations<int>::calculate(m1, m2, m4, MatrixOperations<int>::multiplication);
 
 			Assert::IsTrue(m3 == m4);
 			Assert::IsTrue(m3 == expected);
 			Assert::IsTrue(m4 == expected);
+
+			Logger::WriteMessage((std::to_string(parT) + " for 8 threads").c_str());
+			Logger::WriteMessage((std::to_string(serialT) + " for serial operations").c_str());
 		}
 
 		
@@ -94,10 +103,10 @@ namespace Tests
 			Matrix<ComplexNumber> m1 = Matrix<ComplexNumber>(2, 2);
 			Matrix<ComplexNumber> m2 = Matrix<ComplexNumber>(2, 2);
 			Matrix<ComplexNumber> m3 = Matrix<ComplexNumber>(2, 2);
-			ParallelCalculator<ComplexNumber>::calculate(m1, m2, m3, 2, MatrixOperations<ComplexNumber>::multiplication);
+			double parT = ParallelCalculator<ComplexNumber>::calculate(m1, m2, m3, 2, MatrixOperations<ComplexNumber>::multiplication);
 
 			Matrix<ComplexNumber> m4 = Matrix<ComplexNumber>(2, 2);
-			SerialMatrixOperations<ComplexNumber>::calculate(m1, m2, m4, MatrixOperations<ComplexNumber>::multiplication);
+			double serialT = SerialMatrixOperations<ComplexNumber>::calculate(m1, m2, m4, MatrixOperations<ComplexNumber>::multiplication);
 
 			Assert::IsTrue(m3 == m4);
 
@@ -105,6 +114,9 @@ namespace Tests
 			Matrix<ComplexNumber> expected = Matrix<ComplexNumber>(2, 2);
 			Assert::IsTrue(m3 == expected);
 			Assert::IsTrue(m4 == expected);
+
+			Logger::WriteMessage((std::to_string(parT) + " for 2 threads").c_str());
+			Logger::WriteMessage((std::to_string(serialT) + " for serial operations").c_str());
 		}
 
 		TEST_METHOD(MultiplyTwoIntMatrixes3)
@@ -114,12 +126,14 @@ namespace Tests
 			Matrix<int> m1 = mg.getRandomIntMatrix(1000, 1000);
 			Matrix<int> m2 = mg.getRandomIntMatrix(1000, 1000);
 			Matrix<int> m3 = Matrix<int>(1000, 1000);
-			ParallelCalculator<int>::calculate(m1, m2, m3, 4, MatrixOperations<int>::multiplication);
+			double parT = ParallelCalculator<int>::calculate(m1, m2, m3, 4, MatrixOperations<int>::multiplication);
 
 			Matrix<int> m4 = Matrix<int>(1000, 1000);
-			SerialMatrixOperations<int>::calculate(m1, m2, m4, MatrixOperations<int>::multiplication);
+			double serialT = SerialMatrixOperations<int>::calculate(m1, m2, m4, MatrixOperations<int>::multiplication);
 
 			Assert::IsTrue(m3 == m4);
+			Logger::WriteMessage((std::to_string(parT) + " for 4 threads").c_str());
+			Logger::WriteMessage((std::to_string(serialT) + " for serial operations").c_str());
 		}
 
 		TEST_METHOD(MultiplyTwoIntMatrixes4)
@@ -129,12 +143,15 @@ namespace Tests
 			Matrix<int> m1 = mg.getRandomIntMatrix(2000, 1000);
 			Matrix<int> m2 = mg.getRandomIntMatrix(1000, 2000);
 			Matrix<int> m3 = Matrix<int>(2000, 2000);
-			ParallelCalculator<int>::calculate(m1, m2, m3, 6, MatrixOperations<int>::multiplication);
+			double parT = ParallelCalculator<int>::calculate(m1, m2, m3, 6, MatrixOperations<int>::multiplication);
 
 			Matrix<int> m4 = Matrix<int>(2000, 2000);
-			SerialMatrixOperations<int>::calculate(m1, m2, m4, MatrixOperations<int>::multiplication);
+			double serialT = SerialMatrixOperations<int>::calculate(m1, m2, m4, MatrixOperations<int>::multiplication);
 
 			Assert::IsTrue(m3 == m4);
+
+			Logger::WriteMessage((std::to_string(parT) + " for 6 threads").c_str());
+			Logger::WriteMessage((std::to_string(serialT) + " for serial operations").c_str());
 		}
 
 		TEST_METHOD(MultiplyTwoComplexMatrixes3)
@@ -144,12 +161,15 @@ namespace Tests
 			Matrix<ComplexNumber> m1 = mg.getRandomComplexNumberMatrix(1000, 1000);
 			Matrix<ComplexNumber> m2 = mg.getRandomComplexNumberMatrix(1000, 1000);
 			Matrix<ComplexNumber> m3 = Matrix<ComplexNumber>(1000, 1000);
-			ParallelCalculator<ComplexNumber>::calculate(m1, m2, m3, 10, MatrixOperations<ComplexNumber>::multiplication);
+			double parT = ParallelCalculator<ComplexNumber>::calculate(m1, m2, m3, 10, MatrixOperations<ComplexNumber>::multiplication);
 
 			Matrix<ComplexNumber> m4 = Matrix<ComplexNumber>(1000, 1000);
-			SerialMatrixOperations<ComplexNumber>::calculate(m1, m2, m4, MatrixOperations<ComplexNumber>::multiplication);
+			double serialT = SerialMatrixOperations<ComplexNumber>::calculate(m1, m2, m4, MatrixOperations<ComplexNumber>::multiplication);
 
 			Assert::IsTrue(m3 == m4);
+
+			Logger::WriteMessage((std::to_string(parT) + " for 10 threads").c_str());
+			Logger::WriteMessage((std::to_string(serialT) + " for serial operations").c_str());
 		}
 
 	};
