@@ -13,6 +13,7 @@ private:
 public:
 	ComplexNumber();
 	ComplexNumber(double a, double b);
+	ComplexNumber(double a);
 	ComplexNumber(const ComplexNumber& nr);
 	~ComplexNumber() = default;
 
@@ -23,6 +24,7 @@ public:
 
 	ComplexNumber operator+(const ComplexNumber& nr);
 	ComplexNumber operator*(const ComplexNumber& nr);
+	ComplexNumber operator/(const ComplexNumber& nr);
 	void operator=(const ComplexNumber& nr);
 	bool operator==(const ComplexNumber& nr) const;
 	bool operator!=(const ComplexNumber& nr) const;

@@ -35,5 +35,8 @@
     <ClCompile Include="testMultiply.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="testPointOperator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

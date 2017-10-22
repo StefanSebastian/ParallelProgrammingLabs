@@ -1,9 +1,2 @@
-﻿  ComplexNumber.cpp
-     Creating library E:\Info\anu3\progr paralela\labs\ParallelProgrammingLabs\lab2\Lab2\Release\Lab2.lib and object E:\Info\anu3\progr paralela\labs\ParallelProgrammingLabs\lab2\Lab2\Release\Lab2.exp
-  Generating code
-  3 of 755 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    8 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
-  Lab2.vcxproj -> E:\Info\anu3\progr paralela\labs\ParallelProgrammingLabs\lab2\Lab2\Release\Lab2.dll
+﻿  Lab2.vcxproj -> E:\Info\anu3\progr paralela\labs\ParallelProgrammingLabs\lab2\Lab2\Release\Lab2.dll
   Lab2.vcxproj -> E:\Info\anu3\progr paralela\labs\ParallelProgrammingLabs\lab2\Lab2\Release\Lab2.pdb (Full PDB)

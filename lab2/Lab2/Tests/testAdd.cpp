@@ -183,5 +183,66 @@ namespace Tests
 			Logger::WriteMessage((std::to_string(serialT) + " for serial operations").c_str());
 		}
 
+
+
+		void runIntSimulation(int nrTh, int r, int c) {
+			Logger::WriteMessage(std::string("int data for " + std::to_string(nrTh) + " threads").c_str());
+			Logger::WriteMessage((std::string("Running" + std::to_string(r) + "x" + std::to_string(c) + " add test")).c_str());
+			MatrixGenerator mg = MatrixGenerator();
+
+			Matrix<int> m1 = mg.getRandomIntMatrix(r, c);
+			Matrix<int> m2 = mg.getRandomIntMatrix(r, c);
+
+
+			Matrix<int> m3 = Matrix<int>(r, c);
+			double parT = ParallelCalculator<int>::calculate(m1, m2, m3, nrTh, MatrixOperations<int>::addition);
+
+			Matrix<int> m4 = Matrix<int>(r, c);
+			double serialT = SerialMatrixOperations<int>::calculate(m1, m2, m4, MatrixOperations<int>::addition);
+
+			Assert::IsTrue(m3 == m4);
+
+			Logger::WriteMessage((std::to_string(parT) + " for " + std::to_string(nrTh) + " threads").c_str());
+			Logger::WriteMessage((std::to_string(serialT) + " for serial operations").c_str());
+			Logger::WriteMessage(std::string("---------------------------------------------").c_str());
+		}
+
+		TEST_METHOD(intSimulation)
+		{
+			for (int i = 2; i <= 8; i += 2) {
+				runIntSimulation(i, 1000, 1000);
+			}
+		}
+
+		void runComplexSimulation(int nrTh, int r, int c) {
+			Logger::WriteMessage(std::string("complex number data for " + std::to_string(nrTh) + " threads").c_str());
+			Logger::WriteMessage((std::string("Running" + std::to_string(r) + "x" + std::to_string(c) + " add test")).c_str());
+			MatrixGenerator mg = MatrixGenerator();
+
+			Matrix<ComplexNumber> m1 = mg.getRandomComplexNumberMatrix(r, c);
+			Matrix<ComplexNumber> m2 = mg.getRandomComplexNumberMatrix(r, c);
+
+
+			Matrix<ComplexNumber> m3 = Matrix<ComplexNumber>(r, c);
+			double parT = ParallelCalculator<ComplexNumber>::calculate(m1, m2, m3, nrTh, MatrixOperations<ComplexNumber>::addition);
+
+			Matrix<ComplexNumber> m4 = Matrix<ComplexNumber>(r, c);
+			double serialT = SerialMatrixOperations<ComplexNumber>::calculate(m1, m2, m4, MatrixOperations<ComplexNumber>::addition);
+
+			Assert::IsTrue(m3 == m4);
+
+			Logger::WriteMessage((std::to_string(parT) + " for " + std::to_string(nrTh) + " threads").c_str());
+			Logger::WriteMessage((std::to_string(serialT) + " for serial operations").c_str());
+			Logger::WriteMessage(std::string("------------------------------------------------").c_str());
+		}
+
+		TEST_METHOD(complexSimulation)
+		{
+			for (int i = 2; i <= 8; i += 2) {
+				runIntSimulation(i, 1000, 1000);
+			}
+		}
+
+
 	};
 }

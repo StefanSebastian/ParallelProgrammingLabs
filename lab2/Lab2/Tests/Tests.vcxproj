@@ -162,6 +162,7 @@
     </ClCompile>
     <ClCompile Include="testAdd.cpp" />
     <ClCompile Include="testMultiply.cpp" />
+    <ClCompile Include="testPointOperator.cpp" />
     <ClCompile Include="unittest1.cpp" />
   </ItemGroup>
   <ItemGroup>

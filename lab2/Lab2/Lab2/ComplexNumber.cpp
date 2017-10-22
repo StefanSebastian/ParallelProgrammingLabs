@@ -11,6 +11,11 @@ ComplexNumber::ComplexNumber() :
 {
 }
 
+ ComplexNumber::ComplexNumber(double a) : 
+	 a {a}
+ {
+ }
+
 ComplexNumber::ComplexNumber(const ComplexNumber & nr) :
 	a { nr.a },
 	b { nr.b }
@@ -45,6 +50,11 @@ ComplexNumber ComplexNumber::operator+(const ComplexNumber & nr)
 ComplexNumber ComplexNumber::operator*(const ComplexNumber & nr)
 {
 	return ComplexNumber(a * nr.a - b * nr.b, a * nr.b + b * nr.a);
+}
+
+ComplexNumber ComplexNumber::operator/(const ComplexNumber & nr)
+{
+	return ComplexNumber((a * nr.a + b * nr.b) / (nr.a * nr.a + nr.b * nr.b), (b * nr.a - a * nr.b) / (nr.a * nr.a + nr.b * nr.b));
 }
 
 void ComplexNumber::operator=(const ComplexNumber & nr)

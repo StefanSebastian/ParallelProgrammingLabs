@@ -56,6 +56,23 @@ void intMatrixes(int r1, int c1, int r2, int c2, int thr, string operation) {
 
 		//int fin; cin >> fin;
 	}
+	if (operation == ".") {
+		Matrix<int> ser = Matrix<int>(r1, c2);
+		Matrix<int> par = Matrix<int>(r1, c2);
+
+		double parT = ParallelCalculator<int>::calculate(m1, m2, par, thr, MatrixOperations<int>::pointIntOperator);
+		double serT = SerialMatrixOperations<int>::calculate(m1, m2, ser, MatrixOperations<int>::pointIntOperator);
+
+		MatrixUtils::writeIntMatrix("parallel.txt", par);
+		MatrixUtils::writeIntMatrix("serial.txt", ser);
+
+		if (ser == par) {
+			cout << "Valid result" << std::endl;
+		}
+
+		cout << "Parallel time " + std::to_string(parT) + " for " + std::to_string(thr) + " threads" << std::endl;
+		cout << "Serial time " + std::to_string(serT) << std::endl;
+	}
 }
 
 void complexMatrixes(int r1, int c1, int r2, int c2, int thr, string operation) {
@@ -105,6 +122,24 @@ void complexMatrixes(int r1, int c1, int r2, int c2, int thr, string operation) 
 
 		//int fin; cin >> fin;
 	}
+	if (operation == ".") {
+		Matrix<ComplexNumber> ser = Matrix<ComplexNumber>(r1, c2);
+		Matrix<ComplexNumber> par = Matrix<ComplexNumber>(r1, c2);
+
+		double parT = ParallelCalculator<ComplexNumber>::calculate(m1, m2, par, thr, MatrixOperations<ComplexNumber>::pointComplexNrOperator);
+		double serT = SerialMatrixOperations<ComplexNumber>::calculate(m1, m2, ser, MatrixOperations<ComplexNumber>::pointComplexNrOperator);
+
+		MatrixUtils::writeComplexNrMatrix("parallel.txt", par);
+		MatrixUtils::writeComplexNrMatrix("serial.txt", ser);
+
+		if (ser == par) {
+			cout << "Valid result" << std::endl;
+		}
+
+		cout << "Parallel time " + std::to_string(parT) + " for " + std::to_string(thr) + " threads" << std::endl;
+		cout << "Serial time " + std::to_string(serT) << std::endl;
+
+	}
 }
 
 void runSimulation() {
@@ -123,7 +158,7 @@ void runSimulation() {
 	int threads;
 	cin >> threads;
 
-	cout << "Operation (+/*) : " << std::endl;
+	cout << "Operation (+/*/.) : " << std::endl;
 	string operation;
 	cin >> operation;
 

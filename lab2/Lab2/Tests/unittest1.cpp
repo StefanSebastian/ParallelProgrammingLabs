@@ -51,6 +51,16 @@ namespace Tests
 			}
 		}
 
+		TEST_METHOD(ComplexDivide)
+		{
+			ComplexNumber n1 = ComplexNumber(20, -4);
+			ComplexNumber n2 = ComplexNumber(3, 2);
+			ComplexNumber res = ComplexNumber(4, -4);
+			ComplexNumber actual = n1 / n2;
+			Assert::IsTrue(res == actual);
+				
+		}
+
 
 	};
 }

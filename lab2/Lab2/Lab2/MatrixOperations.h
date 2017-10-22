@@ -11,6 +11,10 @@ public:
 	static T addition(Matrix<T>& m1, Matrix<T>& m2, int i, int j);
 
 	static T multiplication(Matrix<T>& m1, Matrix<T>& m2, int idx1, int idx2);
+
+	static int pointIntOperator(Matrix<int>& m1, Matrix<int>& m2, int idx1, int idx2);
+
+	static ComplexNumber pointComplexNrOperator(Matrix<ComplexNumber>& m1, Matrix<ComplexNumber>& m2, int idx1, int idx2);
 };
 
 template<class T>
@@ -34,3 +38,30 @@ inline T MatrixOperations<T>::multiplication(Matrix<T>& m1, Matrix<T>& m2, int i
 	}
 	return product;
 }
+
+template<class T>
+inline int MatrixOperations<T>::pointIntOperator(Matrix<int>& m1, Matrix<int>& m2, int idx1, int idx2)
+{
+	if (m1.getRows() != m2.getRows() || m1.getCols() != m2.getCols()) {
+		std::cout << "Invalid input";
+	}
+	int a = m1.getElement(idx1, idx2);
+	int b = m2.getElement(idx1, idx2);
+	double aux = (1 / (double)a) + (1 / (double)b);
+	int res = (int)(1 / aux);
+	return res;
+}
+
+template<class T>
+inline ComplexNumber MatrixOperations<T>::pointComplexNrOperator(Matrix<ComplexNumber>& m1, Matrix<ComplexNumber>& m2, int idx1, int idx2)
+{
+	if (m1.getRows() != m2.getRows() || m1.getCols() != m2.getCols()) {
+		std::cout << "Invalid input";
+	}
+	ComplexNumber a = m1.getElement(idx1, idx2);
+	ComplexNumber b = m2.getElement(idx1, idx2);
+	ComplexNumber one = ComplexNumber(1);
+	return one / (one / a + one / b);
+}
+
+
