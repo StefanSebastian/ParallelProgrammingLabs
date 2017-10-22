@@ -35,6 +35,17 @@ public class ComplexNumberElem implements MatrixElement {
         }
     }
 
+    @Override
+    public MatrixElement divide(MatrixElement other) throws MatrixException {
+        if (other instanceof ComplexNumberElem) {
+            ComplexNumberElem nr = (ComplexNumberElem)other;
+            return new ComplexNumberElem((a * nr.a + b * nr.b) / (nr.a * nr.a + nr.b * nr.b),
+                    (b * nr.a - a * nr.b) / (nr.a * nr.a + nr.b * nr.b));
+        } else {
+            throw new MatrixException("Invalid operation");
+        }
+    }
+
     public double getA() {
         return a;
     }

@@ -28,4 +28,13 @@ public class ComplexNumberElemTest {
         assertTrue(res.getB() == 6);
     }
 
+    @Test
+    public void divide() throws Exception {
+        ComplexNumberElem c1 = new ComplexNumberElem(20, -4);
+        ComplexNumberElem c2 = new ComplexNumberElem(3, 2);
+        ComplexNumberElem res = (ComplexNumberElem)c1.divide(c2);
+        assertTrue(res.getA() == 4);
+        assertTrue(res.getB() == -4);
+    }
+
 }

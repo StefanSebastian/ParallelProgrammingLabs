@@ -2,6 +2,7 @@ package matrix.operations;
 
 import matrix.Matrix;
 import matrix.MatrixException;
+import matrix.operations.operators.MatrixElementOperator;
 
 /**
  * Created by Sebi on 21-Oct-17.

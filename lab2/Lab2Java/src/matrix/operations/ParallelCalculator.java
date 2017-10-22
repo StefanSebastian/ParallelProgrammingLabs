@@ -2,9 +2,7 @@ package matrix.operations;
 
 import matrix.Matrix;
 import matrix.MatrixException;
-
-import java.util.LinkedList;
-import java.util.List;
+import matrix.operations.operators.MatrixElementOperator;
 
 /**
  * Created by Sebi on 21-Oct-17.

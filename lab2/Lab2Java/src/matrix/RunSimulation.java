@@ -1,7 +1,7 @@
 package matrix;
 
-import matrix.operations.Addition;
-import matrix.operations.Multiplication;
+import matrix.operations.operators.Addition;
+import matrix.operations.operators.Multiplication;
 import matrix.operations.ParallelCalculator;
 import matrix.operations.SerialCalculator;
 import matrix.utils.MatrixUtils;

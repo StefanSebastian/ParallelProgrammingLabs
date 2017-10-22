@@ -1,4 +1,4 @@
-package matrix.operations;
+package matrix.operations.operators;
 
 import matrix.Matrix;
 import matrix.MatrixException;

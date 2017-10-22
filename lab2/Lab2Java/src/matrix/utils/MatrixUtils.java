@@ -20,7 +20,7 @@ public class MatrixUtils {
         Matrix m = new Matrix(rows, cols);
         for (int i = 0; i < rows; i++){
             for (int j = 0; j < cols; j++){
-                double randomValue = 10 * random.nextDouble();
+                double randomValue = 10 * random.nextDouble() + 1;
                 int randomInt = (int)randomValue;
                 IntElem nr = new IntElem(randomInt);
                 m.setElement(i, j, nr);
@@ -35,8 +35,8 @@ public class MatrixUtils {
         Matrix m = new Matrix(rows, cols);
         for (int i = 0; i < rows; i++){
             for (int j = 0; j < cols; j++){
-                double r1 = 10 * random.nextDouble();
-                double r2 = 10 * random.nextDouble();
+                double r1 = 10 * random.nextDouble() + 1;
+                double r2 = 10 * random.nextDouble() + 1;
                 if (random.nextBoolean()){
                     r2 = -r2;
                 }

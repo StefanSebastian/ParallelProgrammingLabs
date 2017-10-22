@@ -2,7 +2,7 @@ package tests;
 
 import matrix.Matrix;
 import matrix.MatrixException;
-import matrix.operations.Multiplication;
+import matrix.operations.operators.Multiplication;
 import matrix.operations.ParallelCalculator;
 import matrix.operations.SerialCalculator;
 import matrix.types.IntElem;
@@ -45,6 +45,8 @@ public class MultiplyTest {
     }
 
     private void runSimulationInt(int nrThr, int nrRows1, int nrCols1, int nrRows2, int nrCols2) throws MatrixException {
+        System.out.println("Int multiplication with " + nrThr + " threads");
+        System.out.println("Matrix dimensions " + nrRows1 + "x" + nrCols1 + " -- " + nrRows2 + "x" + nrCols2);
         Matrix m1 = MatrixUtils.generateIntMatrix(nrRows1, nrCols1);
         Matrix m2 = MatrixUtils.generateIntMatrix(nrRows2, nrCols2);
         Matrix m3 = new Matrix(nrRows1, nrCols2);
@@ -60,14 +62,17 @@ public class MultiplyTest {
     }
 
     @Test
-    public void multiplyInt2() throws MatrixException {
-        for (int i = 1; i <= 4; i++){
-            runSimulationInt(i, 800, 800, 800, 800);
-            System.out.println();
+    public void runSimulationIntCaller() throws MatrixException {
+        for (int i = 2; i <= 8; i += 2){
+            runSimulationInt(i, 1000, 1000, 1000, 1000);
+            System.out.println("---------------------------");
         }
     }
 
     private void runSimulationComplex(int nrThr, int nrRows1, int nrCols1, int nrRows2, int nrCols2) throws MatrixException {
+        System.out.println("Complex multiplication with " + nrThr + " threads");
+        System.out.println("Matrix dimensions " + nrRows1 + "x" + nrCols1 + " -- " + nrRows2 + "x" + nrCols2);
+
         Matrix m1 = MatrixUtils.generateComplexMatrix(nrRows1, nrCols1);
         Matrix m2 = MatrixUtils.generateComplexMatrix(nrRows2, nrCols2);
         Matrix m3 = new Matrix(nrRows1, nrCols2);
@@ -84,9 +89,9 @@ public class MultiplyTest {
 
     @Test
     public void multiplyComplex2() throws MatrixException {
-        for (int i = 1; i <= 4; i++){
-            runSimulationComplex(i, 800, 800, 800, 800);
-            System.out.println();
+        for (int i = 2; i <= 8; i += 2){
+            runSimulationComplex(i, 1000, 1000, 1000, 1000);
+            System.out.println("---------------------------------");
         }
     }
 }

@@ -8,4 +8,5 @@ import matrix.MatrixException;
 public interface MatrixElement {
     MatrixElement add(MatrixElement other) throws MatrixException;
     MatrixElement multiply(MatrixElement other) throws MatrixException;
+    MatrixElement divide(MatrixElement other) throws MatrixException;
 }

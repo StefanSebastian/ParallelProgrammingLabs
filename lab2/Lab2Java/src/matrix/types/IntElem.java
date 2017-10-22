@@ -30,6 +30,15 @@ public class IntElem implements MatrixElement {
         }
     }
 
+    @Override
+    public MatrixElement divide(MatrixElement other) throws MatrixException {
+        if (other instanceof IntElem) {
+            return new IntElem(value / ((IntElem) other).getValue());
+        } else {
+            throw new MatrixException("Invalid operation");
+        }
+    }
+
     public int getValue() {
         return value;
     }
