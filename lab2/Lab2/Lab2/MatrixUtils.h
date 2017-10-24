@@ -27,6 +27,10 @@ public:
 	*/
 	static Matrix<ComplexNumber> readComplexNrMatrix(std::string path);
 	/*
+	reads a double matrix from a file
+	*/
+	static Matrix<double> readDoubleMatrix(std::string path);
+	/*
 	writes an int matrix to a file
 	*/
 	static void writeIntMatrix(std::string path, Matrix<int>& m);
@@ -34,6 +38,10 @@ public:
 	writes a complex matrix to a file
 	*/
 	static void writeComplexNrMatrix(std::string path, Matrix<ComplexNumber>& m);
+	/*
+	writes a double matrix to a file
+	*/
+	static void writeDoubleMatrix(std::string path, Matrix<double>& m);
 	/*
 	parses a complex number from a string
 	*/

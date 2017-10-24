@@ -12,6 +12,8 @@ public:
 
 	static T multiplication(Matrix<T>& m1, Matrix<T>& m2, int idx1, int idx2);
 
+	static T pointOperator(Matrix<T>& m1, Matrix<T>& m2, int idx1, int idx2);
+
 	static int pointIntOperator(Matrix<int>& m1, Matrix<int>& m2, int idx1, int idx2);
 
 	static ComplexNumber pointComplexNrOperator(Matrix<ComplexNumber>& m1, Matrix<ComplexNumber>& m2, int idx1, int idx2);
@@ -37,6 +39,15 @@ inline T MatrixOperations<T>::multiplication(Matrix<T>& m1, Matrix<T>& m2, int i
 		product = product + m1.getElement(idx1, i) * m2.getElement(i, idx2);
 	}
 	return product;
+}
+
+template<class T>
+inline T MatrixOperations<T>::pointOperator(Matrix<T>& m1, Matrix<T>& m2, int idx1, int idx2)
+{
+	T one { 1 };
+	T a = m1.getElement(idx1, idx2);
+	T b = m2.getElement(idx1, idx2);
+	return one / (one / a + one / b);
 }
 
 template<class T>

@@ -131,10 +131,10 @@ namespace Tests
 
 
 			Matrix<ComplexNumber> m3 = Matrix<ComplexNumber>(r, c);
-			double parT = ParallelCalculator<ComplexNumber>::calculate(m1, m2, m3, nrTh, MatrixOperations<ComplexNumber>::pointComplexNrOperator);
+			double parT = ParallelCalculator<ComplexNumber>::calculate(m1, m2, m3, nrTh, MatrixOperations<ComplexNumber>::pointOperator);
 
 			Matrix<ComplexNumber> m4 = Matrix<ComplexNumber>(r, c);
-			double serialT = SerialMatrixOperations<ComplexNumber>::calculate(m1, m2, m4, MatrixOperations<ComplexNumber>::pointComplexNrOperator);
+			double serialT = SerialMatrixOperations<ComplexNumber>::calculate(m1, m2, m4, MatrixOperations<ComplexNumber>::pointOperator);
 
 			Assert::IsTrue(m3 == m4);
 
@@ -150,6 +150,35 @@ namespace Tests
 			}
 		}
 
+
+		void runDoubleSimulation(int nrTh, int r, int c) {
+			Logger::WriteMessage(std::string("double data for " + std::to_string(nrTh) + " threads").c_str());
+			Logger::WriteMessage((std::string("Running" + std::to_string(r) + "x" + std::to_string(c) + " pointOperator test")).c_str());
+			MatrixGenerator mg = MatrixGenerator();
+
+			Matrix<double> m1 = mg.getRandomDoubleMatrix(r, c);
+			Matrix<double> m2 = mg.getRandomDoubleMatrix(r, c);
+
+
+			Matrix<double> m3 = Matrix<double>(r, c);
+			double parT = ParallelCalculator<double>::calculate(m1, m2, m3, nrTh, MatrixOperations<double>::pointOperator);
+
+			Matrix<double> m4 = Matrix<double>(r, c);
+			double serialT = SerialMatrixOperations<double>::calculate(m1, m2, m4, MatrixOperations<double>::pointOperator);
+
+			Assert::IsTrue(m3 == m4);
+
+			Logger::WriteMessage((std::to_string(parT) + " for " + std::to_string(nrTh) + " threads").c_str());
+			Logger::WriteMessage((std::to_string(serialT) + " for serial operations").c_str());
+			Logger::WriteMessage(std::string("---------------------------------------------").c_str());
+		}
+
+		TEST_METHOD(doubleSimulation)
+		{
+			for (int i = 2; i <= 8; i += 2) {
+				runDoubleSimulation(i, 1000, 1000);
+			}
+		}
 		
 	};
 }

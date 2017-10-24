@@ -60,11 +60,75 @@ void intMatrixes(int r1, int c1, int r2, int c2, int thr, string operation) {
 		Matrix<int> ser = Matrix<int>(r1, c2);
 		Matrix<int> par = Matrix<int>(r1, c2);
 
-		double parT = ParallelCalculator<int>::calculate(m1, m2, par, thr, MatrixOperations<int>::pointIntOperator);
-		double serT = SerialMatrixOperations<int>::calculate(m1, m2, ser, MatrixOperations<int>::pointIntOperator);
+		double parT = ParallelCalculator<int>::calculate(m1, m2, par, thr, MatrixOperations<int>::pointOperator);
+		double serT = SerialMatrixOperations<int>::calculate(m1, m2, ser, MatrixOperations<int>::pointOperator);
 
 		MatrixUtils::writeIntMatrix("parallel.txt", par);
 		MatrixUtils::writeIntMatrix("serial.txt", ser);
+
+		if (ser == par) {
+			cout << "Valid result" << std::endl;
+		}
+
+		cout << "Parallel time " + std::to_string(parT) + " for " + std::to_string(thr) + " threads" << std::endl;
+		cout << "Serial time " + std::to_string(serT) << std::endl;
+	}
+}
+
+void doubleMatrixes(int r1, int c1, int r2, int c2, int thr, string operation) {
+	MatrixGenerator mg = MatrixGenerator();
+	Matrix<double> m1 = mg.getRandomDoubleMatrix(r1, c1);
+	Matrix<double> m2 = mg.getRandomDoubleMatrix(r2, c2);
+	MatrixUtils::writeDoubleMatrix("mat1.txt", m1);
+	MatrixUtils::writeDoubleMatrix("mat2.txt", m2);
+
+	if (operation == "+") {
+		Matrix<double> ser = Matrix<double>(r1, c1);
+		Matrix<double> par = Matrix<double>(r1, c1);
+
+		double parT = ParallelCalculator<double>::calculate(m1, m2, par, thr, MatrixOperations<double>::addition);
+		double serT = SerialMatrixOperations<double>::calculate(m1, m2, ser, MatrixOperations<double>::addition);
+
+		MatrixUtils::writeDoubleMatrix("parallel.txt", par);
+		MatrixUtils::writeDoubleMatrix("serial.txt", ser);
+
+		if (ser == par) {
+			cout << "Valid result" << std::endl;
+		}
+
+		cout << "Parallel time " + std::to_string(parT) + " for " + std::to_string(thr) + " threads" << std::endl;
+		cout << "Serial time " + std::to_string(serT) << std::endl;
+
+		//int fin; cin >> fin;
+	}
+	if (operation == "*") {
+		Matrix<double> ser = Matrix<double>(r1, c2);
+		Matrix<double> par = Matrix<double>(r1, c2);
+
+		double parT = ParallelCalculator<double>::calculate(m1, m2, par, thr, MatrixOperations<double>::multiplication);
+		double serT = SerialMatrixOperations<double>::calculate(m1, m2, ser, MatrixOperations<double>::multiplication);
+
+		MatrixUtils::writeDoubleMatrix("parallel.txt", par);
+		MatrixUtils::writeDoubleMatrix("serial.txt", ser);
+
+		if (ser == par) {
+			cout << "Valid result" << std::endl;
+		}
+
+		cout << "Parallel time " + std::to_string(parT) + " for " + std::to_string(thr) + " threads" << std::endl;
+		cout << "Serial time " + std::to_string(serT) << std::endl;
+
+		//int fin; cin >> fin;
+	}
+	if (operation == ".") {
+		Matrix<double> ser = Matrix<double>(r1, c2);
+		Matrix<double> par = Matrix<double>(r1, c2);
+
+		double parT = ParallelCalculator<double>::calculate(m1, m2, par, thr, MatrixOperations<double>::pointOperator);
+		double serT = SerialMatrixOperations<double>::calculate(m1, m2, ser, MatrixOperations<double>::pointOperator);
+
+		MatrixUtils::writeDoubleMatrix("parallel.txt", par);
+		MatrixUtils::writeDoubleMatrix("serial.txt", ser);
 
 		if (ser == par) {
 			cout << "Valid result" << std::endl;
@@ -143,7 +207,7 @@ void complexMatrixes(int r1, int c1, int r2, int c2, int thr, string operation) 
 }
 
 void runSimulation() {
-	cout << "Matrix type: int / complex" << std::endl;
+	cout << "Matrix type: int / complex / double" << std::endl;
 	string type;
 	cin >> type;
 	cout << "Matrix 1 dimensions : " << std::endl;
@@ -165,8 +229,11 @@ void runSimulation() {
 	if (type == "int") {
 		intMatrixes(rows1, cols1, rows2, cols2, threads, operation);
 	}
-	else {
+	else if (type == "complex") {
 		complexMatrixes(rows1, cols1, rows2, cols2, threads, operation);
+	}
+	else {
+		doubleMatrixes(rows1, cols1, rows2, cols2, threads, operation);
 	}
 
 	cout << std::endl << "-------------------------------" << std::endl;

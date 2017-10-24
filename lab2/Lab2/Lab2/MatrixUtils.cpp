@@ -60,6 +60,23 @@ Matrix<ComplexNumber> MatrixUtils::readComplexNrMatrix(std::string path)
 	return matrix;
 }
 
+Matrix<double> MatrixUtils::readDoubleMatrix(std::string path)
+{
+	std::ifstream fin(path);
+	int rows, cols;
+	fin >> rows;
+	fin >> cols;
+	Matrix<double> matrix = Matrix<double>(rows, cols);
+	for (int i = 0; i < rows; i++) {
+		for (int j = 0; j < cols; j++) {
+			double nr;
+			fin >> nr;
+			matrix.setElement(i, j, nr);
+		}
+	}
+	return matrix;
+}
+
 void MatrixUtils::writeIntMatrix(std::string path, Matrix<int>& m)
 {
 	std::ofstream fout(path);
@@ -79,6 +96,18 @@ void MatrixUtils::writeComplexNrMatrix(std::string path, Matrix<ComplexNumber>& 
 	for (int i = 0; i < m.getRows(); i++) {
 		for (int j = 0; j < m.getCols(); j++) {
 			fout << m.getElement(i, j).toString() << " ";
+		}
+		fout << "\n";
+	}
+}
+
+void MatrixUtils::writeDoubleMatrix(std::string path, Matrix<double>& m)
+{
+	std::ofstream fout(path);
+	fout << m.getRows() << " " << m.getCols() << "\n";
+	for (int i = 0; i < m.getRows(); i++) {
+		for (int j = 0; j < m.getCols(); j++) {
+			fout << m.getElement(i, j) << " ";
 		}
 		fout << "\n";
 	}

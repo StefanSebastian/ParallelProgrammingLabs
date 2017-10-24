@@ -172,19 +172,19 @@ namespace Tests
 			Logger::WriteMessage((std::to_string(serialT) + " for serial operations").c_str());
 		}
 
-		void runIntSimulation(int nrTh, int r, int c) {
+		void runIntSimulation(int nrTh, int r1, int c1, int r2, int c2) {
 			Logger::WriteMessage(std::string("int data for " + std::to_string(nrTh) + " threads").c_str());
-			Logger::WriteMessage((std::string("Running" + std::to_string(r) + "x" + std::to_string(c) + " multiply test")).c_str());
+			Logger::WriteMessage((std::string("Running" + std::to_string(r1) + "x" + std::to_string(c1) + " " + std::to_string(r2) + "x" + std::to_string(c2) +" multiply test")).c_str());
 			MatrixGenerator mg = MatrixGenerator();
 
-			Matrix<int> m1 = mg.getRandomIntMatrix(r, c);
-			Matrix<int> m2 = mg.getRandomIntMatrix(r, c);
+			Matrix<int> m1 = mg.getRandomIntMatrix(r1, c1);
+			Matrix<int> m2 = mg.getRandomIntMatrix(r2, c2);
 
 
-			Matrix<int> m3 = Matrix<int>(r, c);
+			Matrix<int> m3 = Matrix<int>(r1, c2);
 			double parT = ParallelCalculator<int>::calculate(m1, m2, m3, nrTh, MatrixOperations<int>::multiplication);
 
-			Matrix<int> m4 = Matrix<int>(r, c);
+			Matrix<int> m4 = Matrix<int>(r1, c2);
 			double serialT = SerialMatrixOperations<int>::calculate(m1, m2, m4, MatrixOperations<int>::multiplication);
 
 			Assert::IsTrue(m3 == m4);
@@ -197,23 +197,23 @@ namespace Tests
 		TEST_METHOD(intSimulation)
 		{
 			for (int i = 2; i <= 8; i += 2) {
-				runIntSimulation(i, 1000, 1000);
+				runIntSimulation(i, 1000, 1000, 1000, 1000);
 			}
 		}
 
-		void runComplexSimulation(int nrTh, int r, int c) {
+		void runComplexSimulation(int nrTh, int r1, int c1, int r2, int c2) {
 			Logger::WriteMessage(std::string("complex number data for " + std::to_string(nrTh) + " threads").c_str());
-			Logger::WriteMessage((std::string("Running" + std::to_string(r) + "x" + std::to_string(c) + " multiply test")).c_str());
+			Logger::WriteMessage((std::string("Running" + std::to_string(r1) + "x" + std::to_string(c1) + " " + std::to_string(r2) + "x" + std::to_string(c2) + " multiply test")).c_str());
 			MatrixGenerator mg = MatrixGenerator();
 
-			Matrix<ComplexNumber> m1 = mg.getRandomComplexNumberMatrix(r, c);
-			Matrix<ComplexNumber> m2 = mg.getRandomComplexNumberMatrix(r, c);
+			Matrix<ComplexNumber> m1 = mg.getRandomComplexNumberMatrix(r1, c1);
+			Matrix<ComplexNumber> m2 = mg.getRandomComplexNumberMatrix(r2, c2);
 
 
-			Matrix<ComplexNumber> m3 = Matrix<ComplexNumber>(r, c);
+			Matrix<ComplexNumber> m3 = Matrix<ComplexNumber>(r1, c2);
 			double parT = ParallelCalculator<ComplexNumber>::calculate(m1, m2, m3, nrTh, MatrixOperations<ComplexNumber>::multiplication);
 
-			Matrix<ComplexNumber> m4 = Matrix<ComplexNumber>(r, c);
+			Matrix<ComplexNumber> m4 = Matrix<ComplexNumber>(r1, c2);
 			double serialT = SerialMatrixOperations<ComplexNumber>::calculate(m1, m2, m4, MatrixOperations<ComplexNumber>::multiplication);
 
 			Assert::IsTrue(m3 == m4);
@@ -226,7 +226,36 @@ namespace Tests
 		TEST_METHOD(complexSimulation)
 		{
 			for (int i = 2; i <= 8; i += 2) {
-				runIntSimulation(i, 1000, 1000);
+				runIntSimulation(i, 1000, 1000, 1000, 1000);
+			}
+		}
+
+		void runDoubleSimulation(int nrTh, int r1, int c1, int r2, int c2) {
+			Logger::WriteMessage(std::string("double data for " + std::to_string(nrTh) + " threads").c_str());
+			Logger::WriteMessage((std::string("Running" + std::to_string(r1) + "x" + std::to_string(c1) + " " + std::to_string(r2) + "x" + std::to_string(c2) + " multiply test")).c_str());
+			MatrixGenerator mg = MatrixGenerator();
+
+			Matrix<double> m1 = mg.getRandomDoubleMatrix(r1, c1);
+			Matrix<double> m2 = mg.getRandomDoubleMatrix(r2, c2);
+
+
+			Matrix<double> m3 = Matrix<double>(r1, c2);
+			double parT = ParallelCalculator<double>::calculate(m1, m2, m3, nrTh, MatrixOperations<double>::multiplication);
+
+			Matrix<double> m4 = Matrix<double>(r1, c2);
+			double serialT = SerialMatrixOperations<double>::calculate(m1, m2, m4, MatrixOperations<double>::multiplication);
+
+			Assert::IsTrue(m3 == m4);
+
+			Logger::WriteMessage((std::to_string(parT) + " for " + std::to_string(nrTh) + " threads").c_str());
+			Logger::WriteMessage((std::to_string(serialT) + " for serial operations").c_str());
+			Logger::WriteMessage(std::string("---------------------------------------------").c_str());
+		}
+
+		TEST_METHOD(doubleSimulation)
+		{
+			for (int i = 2; i <= 8; i += 2) {
+				runIntSimulation(i, 1000, 1000, 1000, 1000);
 			}
 		}
 
