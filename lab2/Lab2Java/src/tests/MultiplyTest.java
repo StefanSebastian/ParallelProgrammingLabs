@@ -69,6 +69,31 @@ public class MultiplyTest {
         }
     }
 
+    private void runSimulationDouble(int nrThr, int nrRows1, int nrCols1, int nrRows2, int nrCols2) throws MatrixException {
+        System.out.println("double multiplication with " + nrThr + " threads");
+        System.out.println("Matrix dimensions " + nrRows1 + "x" + nrCols1 + " -- " + nrRows2 + "x" + nrCols2);
+        Matrix m1 = MatrixUtils.generateDoubleMatrix(nrRows1, nrCols1);
+        Matrix m2 = MatrixUtils.generateDoubleMatrix(nrRows2, nrCols2);
+        Matrix m3 = new Matrix(nrRows1, nrCols2);
+        Matrix m4 = new Matrix(nrRows1, nrCols2);
+        ParallelCalculator parallelCalculator = new ParallelCalculator();
+        SerialCalculator serialCalculator = new SerialCalculator();
+
+
+        parallelCalculator.calculate(m1, m2, m3, nrThr, new Multiplication());
+        serialCalculator.calculate(m1, m2, m4, new Multiplication());
+
+        assertTrue(m3.equals(m4));
+    }
+
+    @Test
+    public void runSimulationDoubleCaller() throws MatrixException {
+        for (int i = 2; i <= 8; i += 2){
+            runSimulationDouble(i, 1000, 1000, 1000, 1000);
+            System.out.println("---------------------------");
+        }
+    }
+
     private void runSimulationComplex(int nrThr, int nrRows1, int nrCols1, int nrRows2, int nrCols2) throws MatrixException {
         System.out.println("Complex multiplication with " + nrThr + " threads");
         System.out.println("Matrix dimensions " + nrRows1 + "x" + nrCols1 + " -- " + nrRows2 + "x" + nrCols2);
@@ -88,7 +113,7 @@ public class MultiplyTest {
     }
 
     @Test
-    public void multiplyComplex2() throws MatrixException {
+    public void runSimulationComplexCaller() throws MatrixException {
         for (int i = 2; i <= 8; i += 2){
             runSimulationComplex(i, 1000, 1000, 1000, 1000);
             System.out.println("---------------------------------");

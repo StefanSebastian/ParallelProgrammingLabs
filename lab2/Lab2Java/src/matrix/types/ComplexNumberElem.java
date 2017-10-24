@@ -87,8 +87,8 @@ public class ComplexNumberElem implements MatrixElement {
     @Override
     public String toString() {
         if (b >= 0){
-            return String.valueOf(a) + "+" + String.valueOf(b) + "i";
+            return String.format("%.2f", a) + "+" + String.format("%.2f", b) + "i";
         }
-        return String.valueOf(a) + String.valueOf(b) + "i";
+        return String.format("%.2f", a) + String.format("%.2f", b) + "i";
     }
 }

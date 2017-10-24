@@ -1,7 +1,6 @@
 package matrix;
 
-import matrix.operations.operators.Addition;
-import matrix.operations.operators.Multiplication;
+import matrix.operations.operators.*;
 import matrix.operations.ParallelCalculator;
 import matrix.operations.SerialCalculator;
 import matrix.utils.MatrixUtils;
@@ -15,7 +14,7 @@ import java.util.Scanner;
  */
 public class RunSimulation {
 
-    public static void operationRun(int op, int r1, int c1, int r2, int c2, int nrTh, Matrix m1, Matrix m2) throws MatrixException, IOException, URISyntaxException {
+    public static void operationRun(int op, int r1, int c1, int r2, int c2, int nrTh, Matrix m1, Matrix m2, int type) throws MatrixException, IOException, URISyntaxException {
         SerialCalculator serialCalculator = new SerialCalculator();
         ParallelCalculator parallelCalculator = new ParallelCalculator();
 
@@ -39,7 +38,7 @@ public class RunSimulation {
             MatrixUtils.writeMatrix("E:\\Info\\anu3\\progr paralela\\labs\\ParallelProgrammingLabs\\lab2\\Lab2Java\\src\\matrix\\files\\par.txt", m4);
 
 
-        } else {
+        } else if (op == 2){
             Matrix m3 = new Matrix(r1, c2);
             Matrix m4 = new Matrix(r1, c2);
 
@@ -58,10 +57,38 @@ public class RunSimulation {
             MatrixUtils.writeMatrix("E:\\Info\\anu3\\progr paralela\\labs\\ParallelProgrammingLabs\\lab2\\Lab2Java\\src\\matrix\\files\\ser.txt", m3);
             MatrixUtils.writeMatrix("E:\\Info\\anu3\\progr paralela\\labs\\ParallelProgrammingLabs\\lab2\\Lab2Java\\src\\matrix\\files\\par.txt", m4);
 
+        } else {
+            Matrix m3 = new Matrix(r1, c2);
+            Matrix m4 = new Matrix(r1, c2);
+
+            MatrixElementOperator operator;
+            if (type == 1){
+                operator = new PointComplexOperator();
+            } else if (type == 2){
+                operator = new PointIntOperator();
+            } else {
+                operator = new PointDoubleOperator();
+            }
+
+            System.out.println("Running serial operations");
+            serialCalculator.calculate(m1, m2, m3, operator);
+            System.out.println("Running parallel operations");
+            parallelCalculator.calculate(m1, m2, m4, nrTh, operator);
+
+            if (m3.equals(m4)){
+                System.out.println("Valid result");
+            } else {
+                System.out.println("Invalid result");
+            }
+
+            System.out.println("Saving results");
+            MatrixUtils.writeMatrix("E:\\Info\\anu3\\progr paralela\\labs\\ParallelProgrammingLabs\\lab2\\Lab2Java\\src\\matrix\\files\\ser.txt", m3);
+            MatrixUtils.writeMatrix("E:\\Info\\anu3\\progr paralela\\labs\\ParallelProgrammingLabs\\lab2\\Lab2Java\\src\\matrix\\files\\par.txt", m4);
+
         }
     }
 
-    public static void intSim(int r1, int c1, int r2, int c2, int nrTh, int op) throws MatrixException, IOException, URISyntaxException {
+    public static void intSim(int r1, int c1, int r2, int c2, int nrTh, int op, int type) throws MatrixException, IOException, URISyntaxException {
         Matrix m1;
         Matrix m2;
         System.out.println("Generating first matrix");
@@ -71,10 +98,23 @@ public class RunSimulation {
         System.out.println("Generating second matrix");
         m2 = MatrixUtils.generateIntMatrix(r2, c2);
         MatrixUtils.writeMatrix("E:\\Info\\anu3\\progr paralela\\labs\\ParallelProgrammingLabs\\lab2\\Lab2Java\\src\\matrix\\files\\mat2.txt", m2);
-        operationRun(op, r1, c1, r2, c2, nrTh, m1, m2);
+        operationRun(op, r1, c1, r2, c2, nrTh, m1, m2, type);
     }
 
-    public static void complexSim(int r1, int c1, int r2, int c2, int nrTh, int op) throws IOException, URISyntaxException, MatrixException {
+    public static void doubleSim(int r1, int c1, int r2, int c2, int nrTh, int op, int type) throws MatrixException, IOException, URISyntaxException {
+        Matrix m1;
+        Matrix m2;
+        System.out.println("Generating first matrix");
+        m1 = MatrixUtils.generateDoubleMatrix(r1, c1);
+        MatrixUtils.writeMatrix("E:\\Info\\anu3\\progr paralela\\labs\\ParallelProgrammingLabs\\lab2\\Lab2Java\\src\\matrix\\files\\mat1.txt", m1);
+
+        System.out.println("Generating second matrix");
+        m2 = MatrixUtils.generateDoubleMatrix(r2, c2);
+        MatrixUtils.writeMatrix("E:\\Info\\anu3\\progr paralela\\labs\\ParallelProgrammingLabs\\lab2\\Lab2Java\\src\\matrix\\files\\mat2.txt", m2);
+        operationRun(op, r1, c1, r2, c2, nrTh, m1, m2, type);
+    }
+
+    public static void complexSim(int r1, int c1, int r2, int c2, int nrTh, int op, int type) throws IOException, URISyntaxException, MatrixException {
         Matrix m1;
         Matrix m2;
         System.out.println("Generating first matrix");
@@ -84,7 +124,7 @@ public class RunSimulation {
         System.out.println("Generating second matrix");
         m2 = MatrixUtils.generateComplexMatrix(r2, c2);
         MatrixUtils.writeMatrix("E:\\Info\\anu3\\progr paralela\\labs\\ParallelProgrammingLabs\\lab2\\Lab2Java\\src\\matrix\\files\\mat2.txt", m2);
-        operationRun(op, r1, c1, r2, c2, nrTh, m1, m2);
+        operationRun(op, r1, c1, r2, c2, nrTh, m1, m2, type);
     }
 
     public static void runSimulation() throws MatrixException, IOException, URISyntaxException {
@@ -98,19 +138,21 @@ public class RunSimulation {
         int r2 = scanner.nextInt();
         int c2 = scanner.nextInt();
 
-        System.out.println("Operation 1.add 2.multiply");
+        System.out.println("Operation 1.add 2.multiply 3.pointOp");
         int operation = scanner.nextInt();
 
-        System.out.println("Type 1.complex 2.int");
+        System.out.println("Type 1.complex 2.int 3.double");
         int type = scanner.nextInt();
 
         System.out.println("Nr threads: ");
         int nrTh = scanner.nextInt();
 
         if (type == 2){
-            intSim(r1, c1, r2, c2, nrTh, operation);
+            intSim(r1, c1, r2, c2, nrTh, operation, type);
+        } else if (type == 1){
+            complexSim(r1, c1, r2, c2, nrTh, operation, type);
         } else {
-            complexSim(r1, c1, r2, c2, nrTh, operation);
+            doubleSim(r1, c1, r2, c2, nrTh, operation, type);
         }
     }
 

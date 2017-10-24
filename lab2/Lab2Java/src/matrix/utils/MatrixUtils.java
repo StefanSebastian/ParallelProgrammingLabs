@@ -2,6 +2,7 @@ package matrix.utils;
 
 import matrix.Matrix;
 import matrix.types.ComplexNumberElem;
+import matrix.types.DoubleElem;
 import matrix.types.IntElem;
 
 import java.io.*;
@@ -23,6 +24,20 @@ public class MatrixUtils {
                 double randomValue = 10 * random.nextDouble() + 1;
                 int randomInt = (int)randomValue;
                 IntElem nr = new IntElem(randomInt);
+                m.setElement(i, j, nr);
+            }
+        }
+        return m;
+    }
+
+    public static Matrix generateDoubleMatrix(int rows, int cols){
+        Random random = new Random();
+
+        Matrix m = new Matrix(rows, cols);
+        for (int i = 0; i < rows; i++){
+            for (int j = 0; j < cols; j++){
+                double randomValue = 10 * random.nextDouble() + 1;
+                DoubleElem nr = new DoubleElem(randomValue);
                 m.setElement(i, j, nr);
             }
         }

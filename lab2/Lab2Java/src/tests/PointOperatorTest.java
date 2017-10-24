@@ -6,6 +6,7 @@ import matrix.operations.ParallelCalculator;
 import matrix.operations.SerialCalculator;
 import matrix.operations.operators.Addition;
 import matrix.operations.operators.PointComplexOperator;
+import matrix.operations.operators.PointDoubleOperator;
 import matrix.operations.operators.PointIntOperator;
 import matrix.types.IntElem;
 import matrix.types.MatrixElement;
@@ -79,6 +80,31 @@ public class PointOperatorTest {
     public void runSimulationIntCaller() throws MatrixException {
         for (int i = 2; i <= 8; i += 2){
             runSimulationInt(i, 1000, 1000);
+            System.out.println("------------------------------------");
+        }
+    }
+
+    private void runSimulationDouble(int nrThr, int nrRows, int nrCols) throws MatrixException {
+        System.out.println("double point operator with " + nrThr + " threads");
+        System.out.println("Matrix dimensions " + nrRows + "x" + nrCols);
+        Matrix m1 = MatrixUtils.generateDoubleMatrix(nrRows, nrCols);
+        Matrix m2 = MatrixUtils.generateDoubleMatrix(nrRows, nrCols);
+        Matrix m3 = new Matrix(nrRows, nrCols);
+        Matrix m4 = new Matrix(nrRows, nrCols);
+        ParallelCalculator parallelCalculator = new ParallelCalculator();
+        SerialCalculator serialCalculator = new SerialCalculator();
+
+
+        parallelCalculator.calculate(m1, m2, m3, nrThr, new PointDoubleOperator());
+        serialCalculator.calculate(m1, m2, m4, new PointDoubleOperator());
+
+        assertTrue(m3.equals(m4));
+    }
+
+    @Test
+    public void runSimulationDoubleCaller() throws MatrixException {
+        for (int i = 2; i <= 8; i += 2){
+            runSimulationDouble(i, 1000, 1000);
             System.out.println("------------------------------------");
         }
     }
