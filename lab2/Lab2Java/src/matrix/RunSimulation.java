@@ -3,11 +3,13 @@ package matrix;
 import matrix.operations.operators.*;
 import matrix.operations.ParallelCalculator;
 import matrix.operations.SerialCalculator;
+import matrix.types.MatrixElement;
 import matrix.utils.MatrixUtils;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Scanner;
+import java.util.function.BinaryOperator;
 
 /**
  * Created by Sebi on 21-Oct-17.
@@ -22,10 +24,18 @@ public class RunSimulation {
             Matrix m3 = new Matrix(r1, c1);
             Matrix m4 = new Matrix(r2, c2);
 
+            BinaryOperator<MatrixElement> binaryOperator = (matrixElement, matrixElement2) -> {
+                try {
+                    return matrixElement.add(matrixElement2);
+                } catch (MatrixException e) {
+                    return null;
+                }
+            };
+
             System.out.println("Running serial operations");
-            serialCalculator.calculate(m1, m2, m3, new Addition());
+            serialCalculator.calculate(m1, m2, m3, new GenericMatrixOperator(binaryOperator));
             System.out.println("Running parallel operations");
-            parallelCalculator.calculate(m1, m2, m4, nrTh, new Addition());
+            parallelCalculator.calculate(m1, m2, m4, nrTh, new GenericMatrixOperator(binaryOperator));
 
             if (m3.equals(m4)){
                 System.out.println("Valid result");
@@ -42,10 +52,18 @@ public class RunSimulation {
             Matrix m3 = new Matrix(r1, c2);
             Matrix m4 = new Matrix(r1, c2);
 
+            BinaryOperator<MatrixElement> operator = (matrixElement, matrixElement2) -> {
+                try {
+                    return matrixElement.multiply(matrixElement2);
+                } catch (MatrixException e) {
+                    return null;
+                }
+            };
+
             System.out.println("Running serial operations");
-            serialCalculator.calculate(m1, m2, m3, new Multiplication());
+            serialCalculator.calculate(m1, m2, m3, new GenericMatrixOperator(operator));
             System.out.println("Running parallel operations");
-            parallelCalculator.calculate(m1, m2, m4, nrTh, new Multiplication());
+            parallelCalculator.calculate(m1, m2, m4, nrTh, new GenericMatrixOperator(operator));
 
             if (m3.equals(m4)){
                 System.out.println("Valid result");
