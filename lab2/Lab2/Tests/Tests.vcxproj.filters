@@ -32,10 +32,13 @@
     <ClCompile Include="testAdd.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testMultiply.cpp">
+    <ClCompile Include="testPointOperator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testPointOperator.cpp">
+    <ClCompile Include="testMatrixMultiply.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="testMultiply.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

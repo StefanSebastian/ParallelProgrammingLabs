@@ -38,11 +38,11 @@ void intMatrixes(int r1, int c1, int r2, int c2, int thr, string operation) {
 		//int fin; cin >> fin;
 	}
 	if (operation == "*") {
-		Matrix<int> ser = Matrix<int>(r1, c2);
-		Matrix<int> par = Matrix<int>(r1, c2);
+		Matrix<int> ser = Matrix<int>(r1, c1);
+		Matrix<int> par = Matrix<int>(r1, c1);
 
-		double parT = ParallelCalculator<int>::calculate(m1, m2, par, thr, MatrixOperations<int>::multiplication);
-		double serT = SerialMatrixOperations<int>::calculate(m1, m2, ser, MatrixOperations<int>::multiplication);
+		double parT = ParallelCalculator<int>::calculate(m1, m2, par, thr, MatrixOperations<int>::multiply);
+		double serT = SerialMatrixOperations<int>::calculate(m1, m2, ser, MatrixOperations<int>::multiply);
 
 		MatrixUtils::writeIntMatrix("parallel.txt", par);
 		MatrixUtils::writeIntMatrix("serial.txt", ser);
@@ -102,11 +102,11 @@ void doubleMatrixes(int r1, int c1, int r2, int c2, int thr, string operation) {
 		//int fin; cin >> fin;
 	}
 	if (operation == "*") {
-		Matrix<double> ser = Matrix<double>(r1, c2);
-		Matrix<double> par = Matrix<double>(r1, c2);
+		Matrix<double> ser = Matrix<double>(r1, c1);
+		Matrix<double> par = Matrix<double>(r1, c1);
 
-		double parT = ParallelCalculator<double>::calculate(m1, m2, par, thr, MatrixOperations<double>::multiplication);
-		double serT = SerialMatrixOperations<double>::calculate(m1, m2, ser, MatrixOperations<double>::multiplication);
+		double parT = ParallelCalculator<double>::calculate(m1, m2, par, thr, MatrixOperations<double>::multiply);
+		double serT = SerialMatrixOperations<double>::calculate(m1, m2, ser, MatrixOperations<double>::multiply);
 
 		MatrixUtils::writeDoubleMatrix("parallel.txt", par);
 		MatrixUtils::writeDoubleMatrix("serial.txt", ser);
@@ -167,11 +167,11 @@ void complexMatrixes(int r1, int c1, int r2, int c2, int thr, string operation) 
 		//int fin; cin >> fin;
 	}
 	if (operation == "*") {
-		Matrix<ComplexNumber> ser = Matrix<ComplexNumber>(r1, c2);
-		Matrix<ComplexNumber> par = Matrix<ComplexNumber>(r1, c2);
+		Matrix<ComplexNumber> ser = Matrix<ComplexNumber>(r1, c1);
+		Matrix<ComplexNumber> par = Matrix<ComplexNumber>(r1, c1);
 
-		double parT = ParallelCalculator<ComplexNumber>::calculate(m1, m2, par, thr, MatrixOperations<ComplexNumber>::multiplication);
-		double serT = SerialMatrixOperations<ComplexNumber>::calculate(m1, m2, ser, MatrixOperations<ComplexNumber>::multiplication);
+		double parT = ParallelCalculator<ComplexNumber>::calculate(m1, m2, par, thr, MatrixOperations<ComplexNumber>::multiply);
+		double serT = SerialMatrixOperations<ComplexNumber>::calculate(m1, m2, ser, MatrixOperations<ComplexNumber>::multiply);
 
 		MatrixUtils::writeComplexNrMatrix("parallel.txt", par);
 		MatrixUtils::writeComplexNrMatrix("serial.txt", ser);

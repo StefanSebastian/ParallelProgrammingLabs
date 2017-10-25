@@ -8,12 +8,16 @@ Defines a set of generic matrix operations
 template <class T>
 class __declspec(dllexport) MatrixOperations {
 public:
+	// generic functions 
 	static T addition(Matrix<T>& m1, Matrix<T>& m2, int i, int j);
 
-	static T multiplication(Matrix<T>& m1, Matrix<T>& m2, int idx1, int idx2);
+	static T matrixMultiplication(Matrix<T>& m1, Matrix<T>& m2, int idx1, int idx2);
 
 	static T pointOperator(Matrix<T>& m1, Matrix<T>& m2, int idx1, int idx2);
 
+	static T multiply(Matrix<T>& m1, Matrix<T>& m2, int idx1, int idx2);
+
+	// only for testing purposes 
 	static int pointIntOperator(Matrix<int>& m1, Matrix<int>& m2, int idx1, int idx2);
 
 	static ComplexNumber pointComplexNrOperator(Matrix<ComplexNumber>& m1, Matrix<ComplexNumber>& m2, int idx1, int idx2);
@@ -29,7 +33,7 @@ inline T MatrixOperations<T>::addition(Matrix<T>& m1, Matrix<T>& m2, int i, int 
 }
 
 template<class T>
-inline T MatrixOperations<T>::multiplication(Matrix<T>& m1, Matrix<T>& m2, int idx1, int idx2)
+inline T MatrixOperations<T>::matrixMultiplication(Matrix<T>& m1, Matrix<T>& m2, int idx1, int idx2)
 {
 	if (m1.getCols() != m2.getRows()) {
 		std::cout << "Invalid input";
@@ -48,6 +52,12 @@ inline T MatrixOperations<T>::pointOperator(Matrix<T>& m1, Matrix<T>& m2, int id
 	T a = m1.getElement(idx1, idx2);
 	T b = m2.getElement(idx1, idx2);
 	return one / (one / a + one / b);
+}
+
+template<class T>
+inline T MatrixOperations<T>::multiply(Matrix<T>& m1, Matrix<T>& m2, int idx1, int idx2)
+{
+	return m1.getElement(idx1, idx2) * m2.getElement(idx1, idx2);
 }
 
 template<class T>
