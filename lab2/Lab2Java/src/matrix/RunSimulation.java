@@ -3,6 +3,7 @@ package matrix;
 import matrix.operations.operators.*;
 import matrix.operations.ParallelCalculator;
 import matrix.operations.SerialCalculator;
+import matrix.types.ComplexNumberElem;
 import matrix.types.MatrixElement;
 import matrix.utils.MatrixUtils;
 
@@ -81,7 +82,16 @@ public class RunSimulation {
 
             MatrixElementOperator operator;
             if (type == 1){
-                operator = new PointComplexOperator();
+                // operator = new PointComplexOperator();
+                // alternative in generic version
+                operator = new GenericMatrixOperator((a, b) -> {
+                    ComplexNumberElem one = new ComplexNumberElem(1, 0);
+                    try {
+                        return one.divide(one.divide(a).add(one.divide(b)));
+                    } catch (MatrixException e) {
+                        return null;
+                    }
+                });
             } else if (type == 2){
                 operator = new PointIntOperator();
             } else {
