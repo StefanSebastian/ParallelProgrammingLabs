@@ -6,7 +6,7 @@
 #include "MatrixGenerator.h"
 #include "ParallelCalculator.h"
 #include "MatrixOperations.h"
-#include "SerialMatrixOperations.h"
+#include "SerialCalculator.h"
 #include "MatrixUtils.h"
 
 #include<iostream>
@@ -35,7 +35,7 @@ namespace Tests
 			double parT = ParallelCalculator<int>::calculate(m1, m2, m3, 3, MatrixOperations<int>::addition);
 
 			Matrix<int> m4 = Matrix<int>(3, 3);
-			double serialT = SerialMatrixOperations<int>::calculate(m1, m2, m4, MatrixOperations<int>::addition);
+			double serialT = SerialCalculator<int>::calculate(m1, m2, m4, MatrixOperations<int>::addition);
 
 			Assert::IsTrue(m3 == m4);
 
@@ -53,7 +53,7 @@ namespace Tests
 			double parT = ParallelCalculator<ComplexNumber>::calculate(m1, m2, m3, 3, MatrixOperations<ComplexNumber>::addition);
 
 			Matrix<ComplexNumber> m4 = Matrix<ComplexNumber>(3, 3);
-			double serialT = SerialMatrixOperations<ComplexNumber>::calculate(m1, m2, m4, MatrixOperations<ComplexNumber>::addition);
+			double serialT = SerialCalculator<ComplexNumber>::calculate(m1, m2, m4, MatrixOperations<ComplexNumber>::addition);
 
 			Assert::IsTrue(m3 == m4);
 			Logger::WriteMessage((std::to_string(parT) + " for 3 threads").c_str());
@@ -81,7 +81,7 @@ namespace Tests
 			double parT = ParallelCalculator<int>::calculate(m1, m2, m3, 3, MatrixOperations<int>::addition);
 
 			Matrix<int> m4 = Matrix<int>(3, 3);
-			double serialT = SerialMatrixOperations<int>::calculate(m1, m2, m4, MatrixOperations<int>::addition);
+			double serialT = SerialCalculator<int>::calculate(m1, m2, m4, MatrixOperations<int>::addition);
 
 			Assert::IsTrue(m3 == m4);
 			Assert::IsTrue(m3 == expected);
@@ -112,7 +112,7 @@ namespace Tests
 			double parT = ParallelCalculator<int>::calculate(m1, m2, m3, 2, MatrixOperations<int>::addition);
 
 			Matrix<int> m4 = Matrix<int>(2, 4);
-			double serialT = SerialMatrixOperations<int>::calculate(m1, m2, m4, MatrixOperations<int>::addition);
+			double serialT = SerialCalculator<int>::calculate(m1, m2, m4, MatrixOperations<int>::addition);
 
 			Assert::IsTrue(m3 == m4);
 			Assert::IsTrue(m3 == expected);
@@ -134,7 +134,7 @@ namespace Tests
 			double parT = ParallelCalculator<ComplexNumber>::calculate(m1, m2, m3, 2, MatrixOperations<ComplexNumber>::addition);
 
 			Matrix<ComplexNumber> m4 = Matrix<ComplexNumber>(2, 2);
-			double serialT = SerialMatrixOperations<ComplexNumber>::calculate(m1, m2, m4, MatrixOperations<ComplexNumber>::addition);
+			double serialT = SerialCalculator<ComplexNumber>::calculate(m1, m2, m4, MatrixOperations<ComplexNumber>::addition);
 
 			Assert::IsTrue(m3 == m4);
 
@@ -157,7 +157,7 @@ namespace Tests
 			double parT = ParallelCalculator<int>::calculate(m1, m2, m3, 4, MatrixOperations<int>::addition);
 
 			Matrix<int> m4 = Matrix<int>(1000, 1000);
-			double serialT = SerialMatrixOperations<int>::calculate(m1, m2, m4, MatrixOperations<int>::addition);
+			double serialT = SerialCalculator<int>::calculate(m1, m2, m4, MatrixOperations<int>::addition);
 
 			Assert::IsTrue(m3 == m4);
 
@@ -175,7 +175,7 @@ namespace Tests
 			double parT = ParallelCalculator<ComplexNumber>::calculate(m1, m2, m3, 8, MatrixOperations<ComplexNumber>::addition);
 
 			Matrix<ComplexNumber> m4 = Matrix<ComplexNumber>(1000, 1000);
-			double serialT = SerialMatrixOperations<ComplexNumber>::calculate(m1, m2, m4, MatrixOperations<ComplexNumber>::addition);
+			double serialT = SerialCalculator<ComplexNumber>::calculate(m1, m2, m4, MatrixOperations<ComplexNumber>::addition);
 
 			Assert::IsTrue(m3 == m4);
 
@@ -198,7 +198,7 @@ namespace Tests
 			double parT = ParallelCalculator<int>::calculate(m1, m2, m3, nrTh, MatrixOperations<int>::addition);
 
 			Matrix<int> m4 = Matrix<int>(r, c);
-			double serialT = SerialMatrixOperations<int>::calculate(m1, m2, m4, MatrixOperations<int>::addition);
+			double serialT = SerialCalculator<int>::calculate(m1, m2, m4, MatrixOperations<int>::addition);
 
 			Assert::IsTrue(m3 == m4);
 
@@ -227,7 +227,7 @@ namespace Tests
 			double parT = ParallelCalculator<ComplexNumber>::calculate(m1, m2, m3, nrTh, MatrixOperations<ComplexNumber>::addition);
 
 			Matrix<ComplexNumber> m4 = Matrix<ComplexNumber>(r, c);
-			double serialT = SerialMatrixOperations<ComplexNumber>::calculate(m1, m2, m4, MatrixOperations<ComplexNumber>::addition);
+			double serialT = SerialCalculator<ComplexNumber>::calculate(m1, m2, m4, MatrixOperations<ComplexNumber>::addition);
 
 			Assert::IsTrue(m3 == m4);
 

@@ -41,10 +41,10 @@
     <ClInclude Include="MatrixOperations.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SerialMatrixOperations.h">
+    <ClInclude Include="MatrixUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MatrixUtils.h">
+    <ClInclude Include="SerialCalculator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

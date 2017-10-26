@@ -1,2 +1,9 @@
-﻿  Lab2.vcxproj -> E:\Info\anu3\progr paralela\labs\ParallelProgrammingLabs\lab2\Lab2\Release\Lab2.dll
+﻿  ComplexNumber.cpp
+  MatrixGenerator.cpp
+  MatrixUtils.cpp
+     Creating library E:\Info\anu3\progr paralela\labs\ParallelProgrammingLabs\lab2\Lab2\Release\Lab2.lib and object E:\Info\anu3\progr paralela\labs\ParallelProgrammingLabs\lab2\Lab2\Release\Lab2.exp
+  Generating code
+  All 762 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Lab2.vcxproj -> E:\Info\anu3\progr paralela\labs\ParallelProgrammingLabs\lab2\Lab2\Release\Lab2.dll
   Lab2.vcxproj -> E:\Info\anu3\progr paralela\labs\ParallelProgrammingLabs\lab2\Lab2\Release\Lab2.pdb (Full PDB)

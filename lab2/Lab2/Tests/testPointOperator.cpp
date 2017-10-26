@@ -6,7 +6,7 @@
 #include "MatrixGenerator.h"
 #include "ParallelCalculator.h"
 #include "MatrixOperations.h"
-#include "SerialMatrixOperations.h"
+#include "SerialCalculator.h"
 #include "MatrixUtils.h"
 
 #include<iostream>
@@ -35,7 +35,7 @@ namespace Tests
 			double parT = ParallelCalculator<int>::calculate(m1, m2, m3, 3, MatrixOperations<int>::pointIntOperator);
 
 			Matrix<int> m4 = Matrix<int>(3, 3);
-			double serialT = SerialMatrixOperations<int>::calculate(m1, m2, m4, MatrixOperations<int>::pointIntOperator);
+			double serialT = SerialCalculator<int>::calculate(m1, m2, m4, MatrixOperations<int>::pointIntOperator);
 
 			Assert::IsTrue(m3 == m4);
 
@@ -64,7 +64,7 @@ namespace Tests
 			double parT = ParallelCalculator<int>::calculate(m1, m2, m3, 3, MatrixOperations<int>::pointIntOperator);
 
 			Matrix<int> m4 = Matrix<int>(2, 2);
-			double serialT = SerialMatrixOperations<int>::calculate(m1, m2, m4, MatrixOperations<int>::pointIntOperator);
+			double serialT = SerialCalculator<int>::calculate(m1, m2, m4, MatrixOperations<int>::pointIntOperator);
 
 			Assert::IsTrue(m3 == m4);
 			Assert::IsTrue(m3 == expected);
@@ -84,7 +84,7 @@ namespace Tests
 			double parT = ParallelCalculator<ComplexNumber>::calculate(m1, m2, m3, 4, MatrixOperations<ComplexNumber>::pointComplexNrOperator);
 
 			Matrix<ComplexNumber> m4 = Matrix<ComplexNumber>(3, 3);
-			double serialT = SerialMatrixOperations<ComplexNumber>::calculate(m1, m2, m4, MatrixOperations<ComplexNumber>::pointComplexNrOperator);
+			double serialT = SerialCalculator<ComplexNumber>::calculate(m1, m2, m4, MatrixOperations<ComplexNumber>::pointComplexNrOperator);
 
 			Assert::IsTrue(m3 == m4);
 
@@ -105,7 +105,7 @@ namespace Tests
 			double parT = ParallelCalculator<int>::calculate(m1, m2, m3, nrTh, MatrixOperations<int>::pointIntOperator);
 
 			Matrix<int> m4 = Matrix<int>(r, c);
-			double serialT = SerialMatrixOperations<int>::calculate(m1, m2, m4, MatrixOperations<int>::pointIntOperator);
+			double serialT = SerialCalculator<int>::calculate(m1, m2, m4, MatrixOperations<int>::pointIntOperator);
 
 			Assert::IsTrue(m3 == m4);
 
@@ -134,7 +134,7 @@ namespace Tests
 			double parT = ParallelCalculator<ComplexNumber>::calculate(m1, m2, m3, nrTh, MatrixOperations<ComplexNumber>::pointOperator);
 
 			Matrix<ComplexNumber> m4 = Matrix<ComplexNumber>(r, c);
-			double serialT = SerialMatrixOperations<ComplexNumber>::calculate(m1, m2, m4, MatrixOperations<ComplexNumber>::pointOperator);
+			double serialT = SerialCalculator<ComplexNumber>::calculate(m1, m2, m4, MatrixOperations<ComplexNumber>::pointOperator);
 
 			Assert::IsTrue(m3 == m4);
 
@@ -146,7 +146,7 @@ namespace Tests
 		TEST_METHOD(complexSimulation)
 		{
 			for (int i = 2; i <= 8; i += 2) {
-				runIntSimulation(i, 1000, 1000);
+				runComplexSimulation(i, 1000, 1000);
 			}
 		}
 
@@ -164,7 +164,7 @@ namespace Tests
 			double parT = ParallelCalculator<double>::calculate(m1, m2, m3, nrTh, MatrixOperations<double>::pointOperator);
 
 			Matrix<double> m4 = Matrix<double>(r, c);
-			double serialT = SerialMatrixOperations<double>::calculate(m1, m2, m4, MatrixOperations<double>::pointOperator);
+			double serialT = SerialCalculator<double>::calculate(m1, m2, m4, MatrixOperations<double>::pointOperator);
 
 			Assert::IsTrue(m3 == m4);
 
