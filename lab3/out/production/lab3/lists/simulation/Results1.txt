@@ -1,0 +1,159 @@
+Thu Nov 02 16:23:38 EET 2017 Simulation started
+Thu Nov 02 16:23:38 EET 2017 T4 iteration start
+Thu Nov 02 16:23:38 EET 2017 T1 insertion#1 started 5.0
+Thu Nov 02 16:23:38 EET 2017 T2 insertion#1 started 3.0
+Thu Nov 02 16:23:38 EET 2017 T3 deletion#1 started 5.0
+Thu Nov 02 16:23:38 EET 2017 T2 insertion#1 ended 3.0
+Thu Nov 02 16:23:38 EET 2017 T1 insertion#1 ended 5.0
+Thu Nov 02 16:23:38 EET 2017 T4 iteration ended ; []
+Thu Nov 02 16:23:38 EET 2017 T3 deletion#1 ended 5.0
+Thu Nov 02 16:23:39 EET 2017 T1 insertion#2 started 2.0
+Thu Nov 02 16:23:39 EET 2017 T2 insertion#2 started 8.0
+Thu Nov 02 16:23:39 EET 2017 T1 insertion#2 ended 2.0
+Thu Nov 02 16:23:39 EET 2017 T2 insertion#2 ended 8.0
+Thu Nov 02 16:23:39 EET 2017 T3 deletion#2 started 8.0
+Thu Nov 02 16:23:39 EET 2017 T3 deletion#2 ended 8.0
+Thu Nov 02 16:23:40 EET 2017 T2 insertion#3 started 4.0
+Thu Nov 02 16:23:40 EET 2017 T1 insertion#3 started 3.0
+Thu Nov 02 16:23:40 EET 2017 T2 insertion#3 ended 4.0
+Thu Nov 02 16:23:40 EET 2017 T1 insertion#3 ended 3.0
+Thu Nov 02 16:23:40 EET 2017 T3 deletion#3 started 3.0
+Thu Nov 02 16:23:40 EET 2017 T3 deletion#3 ended 3.0
+Thu Nov 02 16:23:41 EET 2017 T4 iteration start
+Thu Nov 02 16:23:41 EET 2017 T4 iteration ended ; [2.0, 3.0, 4.0]
+Thu Nov 02 16:23:41 EET 2017 T1 insertion#4 started 1.0
+Thu Nov 02 16:23:41 EET 2017 T2 insertion#4 started 10.0
+Thu Nov 02 16:23:41 EET 2017 T1 insertion#4 ended 1.0
+Thu Nov 02 16:23:41 EET 2017 T2 insertion#4 ended 10.0
+Thu Nov 02 16:23:41 EET 2017 T3 deletion#4 started 1.0
+Thu Nov 02 16:23:41 EET 2017 T3 deletion#4 ended 1.0
+Thu Nov 02 16:23:42 EET 2017 T2 insertion#5 started 7.0
+Thu Nov 02 16:23:42 EET 2017 T2 insertion#5 ended 7.0
+Thu Nov 02 16:23:42 EET 2017 T1 insertion#5 started 8.0
+Thu Nov 02 16:23:42 EET 2017 T1 insertion#5 ended 8.0
+Thu Nov 02 16:23:42 EET 2017 T3 deletion#5 started 7.0
+Thu Nov 02 16:23:42 EET 2017 T3 deletion#5 ended 7.0
+Thu Nov 02 16:23:43 EET 2017 T1 insertion#6 started 7.0
+Thu Nov 02 16:23:43 EET 2017 T1 insertion#6 ended 7.0
+Thu Nov 02 16:23:43 EET 2017 T3 deletion#6 started 7.0
+Thu Nov 02 16:23:43 EET 2017 T3 deletion#6 ended 7.0
+Thu Nov 02 16:23:44 EET 2017 T4 iteration start
+Thu Nov 02 16:23:44 EET 2017 T4 iteration ended ; [2.0, 3.0, 4.0, 8.0, 10.0]
+Thu Nov 02 16:23:44 EET 2017 T1 insertion#7 started 8.0
+Thu Nov 02 16:23:44 EET 2017 T1 insertion#7 ended 8.0
+Thu Nov 02 16:23:44 EET 2017 T3 deletion#7 started 8.0
+Thu Nov 02 16:23:44 EET 2017 T3 deletion#7 ended 8.0
+Thu Nov 02 16:23:45 EET 2017 T1 insertion#8 started 8.0
+Thu Nov 02 16:23:45 EET 2017 T1 insertion#8 ended 8.0
+Thu Nov 02 16:23:46 EET 2017 T1 insertion#9 started 10.0
+Thu Nov 02 16:23:46 EET 2017 T1 insertion#9 ended 10.0
+Thu Nov 02 16:23:47 EET 2017 T4 iteration start
+Thu Nov 02 16:23:47 EET 2017 T4 iteration ended ; [2.0, 3.0, 4.0, 8.0, 8.0, 10.0, 10.0]
+Thu Nov 02 16:23:47 EET 2017 T1 insertion#10 started 1.0
+Thu Nov 02 16:23:47 EET 2017 T1 insertion#10 ended 1.0
+Thu Nov 02 16:25:01 EET 2017 Simulation started
+Thu Nov 02 16:25:01 EET 2017 T4 iteration start
+Thu Nov 02 16:25:01 EET 2017 T1 insertion#1 started 9.0
+Thu Nov 02 16:25:01 EET 2017 T4 iteration ended ; []
+Thu Nov 02 16:25:01 EET 2017 T3 deletion#1 started 7.0
+Thu Nov 02 16:25:01 EET 2017 T2 insertion#1 started 7.0
+Thu Nov 02 16:25:01 EET 2017 T3 deletion#1 ended 7.0
+Thu Nov 02 16:25:01 EET 2017 T1 insertion#1 ended 9.0
+Thu Nov 02 16:25:01 EET 2017 T2 insertion#1 ended 7.0
+Thu Nov 02 16:25:02 EET 2017 T3 deletion#2 started 8.0
+Thu Nov 02 16:25:02 EET 2017 T2 insertion#2 started 8.0
+Thu Nov 02 16:25:02 EET 2017 T1 insertion#2 started 3.0
+Thu Nov 02 16:25:02 EET 2017 T2 insertion#2 ended 8.0
+Thu Nov 02 16:25:02 EET 2017 T3 deletion#2 ended 8.0
+Thu Nov 02 16:25:02 EET 2017 T1 insertion#2 ended 3.0
+Thu Nov 02 16:25:03 EET 2017 T2 insertion#3 started 9.0
+Thu Nov 02 16:25:03 EET 2017 T3 deletion#3 started 9.0
+Thu Nov 02 16:25:03 EET 2017 T1 insertion#3 started 3.0
+Thu Nov 02 16:25:03 EET 2017 T3 deletion#3 ended 9.0
+Thu Nov 02 16:25:03 EET 2017 T2 insertion#3 ended 9.0
+Thu Nov 02 16:25:03 EET 2017 T1 insertion#3 ended 3.0
+Thu Nov 02 16:25:04 EET 2017 T4 iteration start
+Thu Nov 02 16:25:04 EET 2017 T4 iteration ended ; [3.0, 3.0, 7.0, 8.0, 9.0]
+Thu Nov 02 16:25:04 EET 2017 T3 deletion#4 started 8.0
+Thu Nov 02 16:25:04 EET 2017 T1 insertion#4 started 8.0
+Thu Nov 02 16:25:04 EET 2017 T2 insertion#4 started 2.0
+Thu Nov 02 16:25:04 EET 2017 T1 insertion#4 ended 8.0
+Thu Nov 02 16:25:04 EET 2017 T3 deletion#4 ended 8.0
+Thu Nov 02 16:25:04 EET 2017 T2 insertion#4 ended 2.0
+Thu Nov 02 16:25:05 EET 2017 T3 deletion#5 started 2.0
+Thu Nov 02 16:25:05 EET 2017 T2 insertion#5 started 0.0
+Thu Nov 02 16:25:05 EET 2017 T1 insertion#5 started 2.0
+Thu Nov 02 16:25:05 EET 2017 T2 insertion#5 ended 0.0
+Thu Nov 02 16:25:05 EET 2017 T3 deletion#5 ended 2.0
+Thu Nov 02 16:25:05 EET 2017 T1 insertion#5 ended 2.0
+Thu Nov 02 16:25:06 EET 2017 T3 deletion#6 started 4.0
+Thu Nov 02 16:25:06 EET 2017 T1 insertion#6 started 4.0
+Thu Nov 02 16:25:06 EET 2017 T3 deletion#6 ended 4.0
+Thu Nov 02 16:25:06 EET 2017 T1 insertion#6 ended 4.0
+Thu Nov 02 16:25:07 EET 2017 T4 iteration start
+Thu Nov 02 16:25:07 EET 2017 T4 iteration ended ; [0.0, 2.0, 3.0, 3.0, 4.0, 7.0, 8.0, 9.0]
+Thu Nov 02 16:25:07 EET 2017 T3 deletion#7 started 8.0
+Thu Nov 02 16:25:07 EET 2017 T1 insertion#7 started 10.0
+Thu Nov 02 16:25:07 EET 2017 T3 deletion#7 ended 8.0
+Thu Nov 02 16:25:07 EET 2017 T1 insertion#7 ended 10.0
+Thu Nov 02 16:25:08 EET 2017 T1 insertion#8 started 6.0
+Thu Nov 02 16:25:08 EET 2017 T1 insertion#8 ended 6.0
+Thu Nov 02 16:25:09 EET 2017 T1 insertion#9 started 9.0
+Thu Nov 02 16:25:09 EET 2017 T1 insertion#9 ended 9.0
+Thu Nov 02 16:25:10 EET 2017 T4 iteration start
+Thu Nov 02 16:25:10 EET 2017 T4 iteration ended ; [0.0, 2.0, 3.0, 3.0, 4.0, 6.0, 7.0, 9.0, 9.0, 10.0]
+Thu Nov 02 16:25:10 EET 2017 T1 insertion#10 started 1.0
+Thu Nov 02 16:25:10 EET 2017 T1 insertion#10 ended 1.0
+Thu Nov 02 16:27:18 EET 2017 Simulation started
+Thu Nov 02 16:27:18 EET 2017 T2 insertion#1 started 0.0
+Thu Nov 02 16:27:18 EET 2017 T3 deletion#1 started 6.0
+Thu Nov 02 16:27:18 EET 2017 T2 insertion#1 ended 0.0
+Thu Nov 02 16:27:18 EET 2017 T4 iteration start
+Thu Nov 02 16:27:18 EET 2017 T1 insertion#1 started 6.0
+Thu Nov 02 16:27:18 EET 2017 T3 deletion#1 ended 6.0
+Thu Nov 02 16:27:18 EET 2017 T1 insertion#1 ended 6.0
+Thu Nov 02 16:27:18 EET 2017 T4 iteration ended ; [0.0]
+Thu Nov 02 16:27:19 EET 2017 T1 insertion#2 started 5.0
+Thu Nov 02 16:27:19 EET 2017 T2 insertion#2 started 1.0
+Thu Nov 02 16:27:19 EET 2017 T3 deletion#2 started 5.0
+Thu Nov 02 16:27:19 EET 2017 T2 insertion#2 ended 1.0
+Thu Nov 02 16:27:19 EET 2017 T1 insertion#2 ended 5.0
+Thu Nov 02 16:27:19 EET 2017 T3 deletion#2 ended 5.0
+Thu Nov 02 16:27:20 EET 2017 T2 insertion#3 started 3.0
+Thu Nov 02 16:27:20 EET 2017 T1 insertion#3 started 10.0
+Thu Nov 02 16:27:20 EET 2017 T3 deletion#3 started 3.0
+Thu Nov 02 16:27:20 EET 2017 T3 deletion#3 ended 3.0
+Thu Nov 02 16:27:20 EET 2017 T1 insertion#3 ended 10.0
+Thu Nov 02 16:27:20 EET 2017 T2 insertion#3 ended 3.0
+Thu Nov 02 16:27:21 EET 2017 T4 iteration start
+Thu Nov 02 16:27:21 EET 2017 T4 iteration ended ; [0.0, 1.0, 6.0, 10.0]
+Thu Nov 02 16:27:21 EET 2017 T2 insertion#4 started 2.0
+Thu Nov 02 16:27:21 EET 2017 T3 deletion#4 started 2.0
+Thu Nov 02 16:27:21 EET 2017 T1 insertion#4 started 2.0
+Thu Nov 02 16:27:21 EET 2017 T3 deletion#4 ended 2.0
+Thu Nov 02 16:27:21 EET 2017 T2 insertion#4 ended 2.0
+Thu Nov 02 16:27:21 EET 2017 T1 insertion#4 ended 2.0
+Thu Nov 02 16:27:22 EET 2017 T2 insertion#5 started 5.0
+Thu Nov 02 16:27:22 EET 2017 T1 insertion#5 started 2.0
+Thu Nov 02 16:27:22 EET 2017 T3 deletion#5 started 2.0
+Thu Nov 02 16:27:22 EET 2017 T1 insertion#5 ended 2.0
+Thu Nov 02 16:27:22 EET 2017 T2 insertion#5 ended 5.0
+Thu Nov 02 16:27:22 EET 2017 T3 deletion#5 ended 2.0
+Thu Nov 02 16:27:23 EET 2017 T3 deletion#6 started 0.0
+Thu Nov 02 16:27:23 EET 2017 T1 insertion#6 started 9.0
+Thu Nov 02 16:27:23 EET 2017 T3 deletion#6 ended 0.0
+Thu Nov 02 16:27:23 EET 2017 T1 insertion#6 ended 9.0
+Thu Nov 02 16:27:24 EET 2017 T4 iteration start
+Thu Nov 02 16:27:24 EET 2017 T4 iteration ended ; [1.0, 2.0, 5.0, 6.0, 9.0, 10.0]
+Thu Nov 02 16:27:24 EET 2017 T3 deletion#7 started 1.0
+Thu Nov 02 16:27:24 EET 2017 T1 insertion#7 started 6.0
+Thu Nov 02 16:27:24 EET 2017 T3 deletion#7 ended 1.0
+Thu Nov 02 16:27:24 EET 2017 T1 insertion#7 ended 6.0
+Thu Nov 02 16:27:25 EET 2017 T1 insertion#8 started 0.0
+Thu Nov 02 16:27:25 EET 2017 T1 insertion#8 ended 0.0
+Thu Nov 02 16:27:26 EET 2017 T1 insertion#9 started 4.0
+Thu Nov 02 16:27:26 EET 2017 T1 insertion#9 ended 4.0
+Thu Nov 02 16:27:27 EET 2017 T4 iteration start
+Thu Nov 02 16:27:27 EET 2017 T4 iteration ended ; [0.0, 2.0, 4.0, 5.0, 6.0, 6.0, 9.0, 10.0]
+Thu Nov 02 16:27:27 EET 2017 T1 insertion#10 started 1.0
+Thu Nov 02 16:27:27 EET 2017 T1 insertion#10 ended 1.0
