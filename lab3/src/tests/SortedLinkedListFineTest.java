@@ -31,8 +31,7 @@ public class SortedLinkedListFineTest {
 
         List<Thread> threads = new LinkedList<>();
         threads.add(new Thread(new TestAdder(list, "T1")));
-        threads.add(new Thread(new TestAdder(list, "T2")));
-        threads.add(new Thread(new TestAdder(list, "T3")));
+        threads.add(new Thread(new TestRemover(list, "T2")));
 
         for (Thread t : threads){
             t.start();
