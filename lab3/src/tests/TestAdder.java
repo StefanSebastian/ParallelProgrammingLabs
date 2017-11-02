@@ -19,11 +19,10 @@ public class TestAdder implements Runnable {
     @Override
     public void run() {
         Random random = new Random();
-        for (int i = 0; i < 10; i++){
-            double e = random.nextInt() % 10;
-            //System.out.println(name + " inserting " + e);
-           // list.insert(e);
-            list.insert(3);
+        for (int i = 0; i < 6; i++){
+            double e = random.nextInt() % 5;
+            System.out.println(name + " inserting " + e);
+            list.insert(e);
         }
     }
 }

@@ -20,10 +20,9 @@ public class TestRemover implements Runnable {
     public void run() {
         Random random = new Random();
         for (int i = 0; i < 10; i++){
-            double e = random.nextInt() % 10;
-           // System.out.println(name + " removing " + e);
-           // list.delete(e);
-            list.delete(3);
+            double e = random.nextInt() % 5;
+            System.out.println(name + " removing " + e);
+            list.delete(e);
         }
     }
 }

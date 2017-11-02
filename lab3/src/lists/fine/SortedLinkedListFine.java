@@ -22,62 +22,60 @@ public class SortedLinkedListFine implements SortedLinkedList {
         dummyStart.getLock().lock();
         System.out.println("Started inserting " + a);
 
-        try {
+        // empty list
+        if (start == null) {
+            start = new Node(a);
+            dummyStart.setNext(start);
+            System.out.println("Finished inserting " + a);
+            dummyStart.getLock().unlock();
+            return;
+        }
 
-            // empty list
-            if (start == null) {
-                start = new Node(a);
-                dummyStart.setNext(start);
-                dummyStart.getLock().unlock();
-                return;
-            }
-
-            // before first
-            if (a <= start.getValue()) {
-                Node element = new Node(a);
-                dummyStart.setNext(element);
-                element.setNext(start);
-                start.setPrev(element);
-                start = element;
-                dummyStart.getLock().unlock();
-                return;
-            }
-
-            Node prev = dummyStart;
-            Node curr = start;
-
-            curr.getLock().lock();
-            while (curr != null && a > curr.getValue()) {
-                prev.getLock().unlock();
-                prev = curr;
-                if (curr.getNext() != null){
-                    curr.getNext().getLock().lock();
-                }
-                curr = curr.getNext();
-            }
-
+        // before first
+        if (a <= start.getValue()) {
             Node element = new Node(a);
+            dummyStart.setNext(element);
+            element.setNext(start);
+            start.setPrev(element);
+            start = element;
+            System.out.println("Finished inserting " + a);
+            dummyStart.getLock().unlock();
+            return;
+        }
 
-            // last element
-            if (curr == null) {
-                prev.setNext(element);
-                element.setPrev(prev);
-                prev.getLock().unlock();
-                return;
+        Node prev = dummyStart;
+        Node curr = start;
+
+        curr.getLock().lock();
+        while (curr != null && a > curr.getValue()) {
+            prev.getLock().unlock();
+            prev = curr;
+            if (curr.getNext() != null){
+                curr.getNext().getLock().lock();
             }
+            curr = curr.getNext();
+        }
 
-            // intermediary
+        Node element = new Node(a);
+
+        // last element
+        if (curr == null) {
             prev.setNext(element);
             element.setPrev(prev);
-            element.setNext(curr);
-            curr.setPrev(element);
-
-            prev.getLock().unlock();
-            curr.getLock().unlock();
-
-        } finally {
             System.out.println("Finished inserting " + a);
+            prev.getLock().unlock();
+            return;
         }
+
+        // intermediary
+        prev.setNext(element);
+        element.setPrev(prev);
+        element.setNext(curr);
+        curr.setPrev(element);
+
+        System.out.println("Finished inserting " + a);
+        prev.getLock().unlock();
+        curr.getLock().unlock();
     }
 
     @Override
@@ -85,62 +83,65 @@ public class SortedLinkedListFine implements SortedLinkedList {
         dummyStart.getLock().lock();
         System.out.println("Started deleting " + a);
 
-        try {
-            // empty list
-            if (start == null) {
-                dummyStart.getLock().unlock();
-                return;
+
+        // empty list
+        if (start == null) {
+            System.out.println("Finished deleting " + a);
+            dummyStart.getLock().unlock();
+            return;
+        }
+
+        // first
+        if (a == start.getValue()) {
+            if (start.getNext() != null) {
+                start.getNext().setPrev(null);
             }
+            start = start.getNext();
+            System.out.println("Finished deleting " + a);
+            dummyStart.getLock().unlock();
+            return;
+        }
 
-            // first
-            if (a == start.getValue()) {
-                if (start.getNext() != null) {
-                    start.getNext().setPrev(null);
-                }
-                start = start.getNext();
-                dummyStart.getLock().unlock();
-                return;
+        Node prev = dummyStart;
+        Node curr = start;
+
+        curr.getLock().lock();
+        while (curr != null && a != curr.getValue()) {
+            prev.getLock().unlock();
+            prev = curr;
+            if (curr.getNext() != null){
+                curr.getNext().getLock().lock();
             }
+            curr = curr.getNext();
+        }
 
-            Node prev = dummyStart;
-            Node curr = start;
+        Node element = new Node(a);
 
-            curr.getLock().lock();
-            while (curr != null && a != curr.getValue()) {
-                prev.getLock().unlock();
-                prev = curr;
-                if (curr.getNext() != null){
-                    curr.getNext().getLock().lock();
-                }
-                curr = curr.getNext();
-            }
+        // not found
+        if (curr == null) {
+            System.out.println("Finished deleting " + a);
+            prev.getLock().unlock();
+            return;
+        }
 
-            Node element = new Node(a);
+        // last element
+        if (curr.getNext() == null){
+            prev.setNext(null);
+            curr.setPrev(null);
 
-            // not found
-            if (curr == null) {
-                prev.getLock().unlock();
-                return;
-            }
-
-            // last element
-            if (curr.getNext() == null){
-                prev.setNext(null);
-                curr.setPrev(null);
-                prev.getLock().unlock();
-                curr.getLock().unlock();
-                return;
-            }
-
-            // intermediary
-            prev.setNext(curr.getNext());
-            curr.getNext().setPrev(prev);
-
+            System.out.println("Finished deleting " + a);
             prev.getLock().unlock();
             curr.getLock().unlock();
-        } finally {
-            System.out.println("Finished deleting " + a);
+            return;
         }
+
+        // intermediary
+        prev.setNext(curr.getNext());
+        curr.getNext().setPrev(prev);
+
+        System.out.println("Finished deleting " + a);
+        prev.getLock().unlock();
+        curr.getLock().unlock();
     }
 
     @Override
