@@ -14,90 +14,6 @@ import java.util.List;
  */
 public class Main {
 
-
-    private static void runCoarseSimulation(int valuesT1, int valuesT2, int valuesT3){
-        SortedLinkedList list = new SortedLinkedListCoarse();
-        Logger logger = new Logger("E:\\Info\\anu3\\progr paralela\\labs\\ParallelProgrammingLabs\\lab3\\src\\lists\\simulation\\ResultsCoarse.txt");
-        logger.logOperation("Simulation started");
-        Logger iterationLogger = new Logger("E:\\Info\\anu3\\progr paralela\\labs\\ParallelProgrammingLabs\\lab3\\src\\lists\\simulation\\ResultsIteration.txt");
-        iterationLogger.logOperation("Simulation started");
-
-
-        List<Double> add1 = InputGenerator.getValuesInRange(valuesT1, 0, 10);
-        List<Double> add2 = InputGenerator.getValuesInRange(valuesT2, 0, 10);
-        List<Double> delete = InputGenerator.getValuesFromLists(valuesT3, add1, add2);
-
-        List<Thread> threads = new LinkedList<>();
-        threads.add(new Thread(new Inserter("T1", list, add1, logger, 1000L)));
-        threads.add(new Thread(new Inserter("T2", list, add2, logger, 1000L)));
-        threads.add(new Thread(new Remover("T3", list, delete, logger, 1000L)));
-        Printer printer = new Printer("T4", list, 3000L, logger, iterationLogger);
-        Thread printerTh = new Thread(printer);
-
-        for (Thread t : threads){
-            t.start();
-        }
-        printerTh.start();
-
-        for (Thread t : threads){
-            try {
-                t.join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-
-        // stop the printer thread after the rest
-        printer.setRunning(false);
-        try {
-            printerTh.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private static void runFineSimulation(int valuesT1, int valuesT2, int valuesT3) {
-        SortedLinkedList list = new SortedLinkedListFine();
-        Logger logger = new Logger("E:\\Info\\anu3\\progr paralela\\labs\\ParallelProgrammingLabs\\lab3\\src\\lists\\simulation\\ResultsFine.txt");
-        logger.logOperation("Simulation started");
-        Logger iterationLogger = new Logger("E:\\Info\\anu3\\progr paralela\\labs\\ParallelProgrammingLabs\\lab3\\src\\lists\\simulation\\ResultsIteration.txt");
-        iterationLogger.logOperation("Simulation started");
-
-
-
-        List<Double> add1 = InputGenerator.getValuesInRange(valuesT1, 0, 10);
-        List<Double> add2 = InputGenerator.getValuesInRange(valuesT2, 0, 10);
-        List<Double> delete = InputGenerator.getValuesFromLists(valuesT3, add1, add2);
-
-        List<Thread> threads = new LinkedList<>();
-        threads.add(new Thread(new Inserter("T1", list, add1, logger, 1000L)));
-        threads.add(new Thread(new Inserter("T2", list, add2, logger, 1000L)));
-        threads.add(new Thread(new Remover("T3", list, delete, logger, 1000L)));
-        Printer printer = new Printer("T4", list, 3000L, logger, iterationLogger);
-        Thread printerTh = new Thread(printer);
-
-        for (Thread t : threads){
-            t.start();
-        }
-        printerTh.start();
-
-        for (Thread t : threads){
-            try {
-                t.join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-
-        // stop the printer thread after the rest
-        printer.setRunning(false);
-        try {
-            printerTh.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
     /*
     Runs a simulation and returns the time
      */
@@ -173,14 +89,17 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        //runCoarseSimulation(100, 50, 50);
-       // getTimeForCoarse();
-       // getTimeForFine();
+        getTimeForFine();
+        getTimeForCoarse();
 
-        runSimulation(new SortedLinkedListFine(), 10, 5, 7, 4, 4, 2, 12);
+       // runSimulation(new SortedLinkedListCoarse(), 10, 5, 7, 4, 4, 2, 12);
+
+       // runSimulation(new SortedLinkedListFine(), 10, 5, 7, 4, 4, 2, 12);
 
 
-       /* SortedLinkedList list = new SortedLinkedListFine();
+       /*
+        // Insertion time experiment
+        SortedLinkedList list = new SortedLinkedListFine();
         Random random = new Random();
 
         double start = System.currentTimeMillis();

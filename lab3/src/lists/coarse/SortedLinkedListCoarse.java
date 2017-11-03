@@ -17,7 +17,7 @@ public class SortedLinkedListCoarse implements SortedLinkedList {
     @Override
     public void insert(double a) {
         lock.lock();
-        System.out.println("Lock acquired for inserting : " + a);
+       // System.out.println("Lock acquired for inserting : " + a);
 
         try {
 
@@ -51,10 +51,10 @@ public class SortedLinkedListCoarse implements SortedLinkedList {
             }
         } catch (Exception ex){
             ex.printStackTrace();
-            System.out.println("Error at inserting : " + a);
+         //   System.out.println("Error at inserting : " + a);
         }
         finally {
-            System.out.println("Lock released for inserting : " + a);
+          //  System.out.println("Lock released for inserting : " + a);
             lock.unlock();
         }
     }
@@ -62,7 +62,7 @@ public class SortedLinkedListCoarse implements SortedLinkedList {
     @Override
     public void delete(double a) {
         lock.lock();
-        System.out.println("Lock acquired for deleting : " + a);
+      //  System.out.println("Lock acquired for deleting : " + a);
         try {
             // empty list
             if (start == null) {
@@ -105,10 +105,10 @@ public class SortedLinkedListCoarse implements SortedLinkedList {
             it.getNext().setPrev(prev);
         } catch (Exception ex){
             ex.printStackTrace();
-            System.out.println("Error at deleting : " + a);
+          //  System.out.println("Error at deleting : " + a);
         }
         finally {
-            System.out.println("Lock released for deleting : " + a);
+          //  System.out.println("Lock released for deleting : " + a);
             lock.unlock();
         }
     }
@@ -116,7 +116,7 @@ public class SortedLinkedListCoarse implements SortedLinkedList {
     @Override
     public IIterator getIterator() {
         lock.lock();
-        System.out.println("Lock acquired for iterator");
+        //System.out.println("Lock acquired for iterator");
         return new Iterator(start);
     }
 
@@ -141,7 +141,7 @@ public class SortedLinkedListCoarse implements SortedLinkedList {
         public boolean isValid() {
             if (node == null){
                 lock.unlock();
-                System.out.println("Lock released for iterator");
+               // System.out.println("Lock released for iterator");
             }
             return node != null;
         }

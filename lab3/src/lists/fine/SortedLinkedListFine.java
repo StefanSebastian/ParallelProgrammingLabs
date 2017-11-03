@@ -20,13 +20,13 @@ public class SortedLinkedListFine implements SortedLinkedList {
     @Override
     public void insert(double a) {
         dummyStart.getLock().lock();
-        System.out.println("Lock acquired for inserting " + a);
+      //  System.out.println("Lock acquired for inserting " + a);
 
         // empty list
         if (start == null) {
             start = new Node(a);
             dummyStart.setNext(start);
-            System.out.println("Lock released for inserting " + a);
+         //   System.out.println("Lock released for inserting " + a);
             dummyStart.getLock().unlock();
             return;
         }
@@ -38,7 +38,7 @@ public class SortedLinkedListFine implements SortedLinkedList {
             element.setNext(start);
             start.setPrev(element);
             start = element;
-            System.out.println("Lock released for inserting " + a);
+          //  System.out.println("Lock released for inserting " + a);
             dummyStart.getLock().unlock();
             return;
         }
@@ -62,7 +62,7 @@ public class SortedLinkedListFine implements SortedLinkedList {
         if (curr == null) {
             prev.setNext(element);
             element.setPrev(prev);
-            System.out.println("Lock released for inserting " + a);
+         //   System.out.println("Lock released for inserting " + a);
             prev.getLock().unlock();
             return;
         }
@@ -73,7 +73,7 @@ public class SortedLinkedListFine implements SortedLinkedList {
         element.setNext(curr);
         curr.setPrev(element);
 
-        System.out.println("Lock released for inserting " + a);
+       // System.out.println("Lock released for inserting " + a);
         prev.getLock().unlock();
         curr.getLock().unlock();
     }
@@ -81,12 +81,12 @@ public class SortedLinkedListFine implements SortedLinkedList {
     @Override
     public void delete(double a) {
         dummyStart.getLock().lock();
-        System.out.println("Lock acquired for deleting " + a);
+      //  System.out.println("Lock acquired for deleting " + a);
 
 
         // empty list
         if (start == null) {
-            System.out.println("Lock released for deleting " + a);
+          //  System.out.println("Lock released for deleting " + a);
             dummyStart.getLock().unlock();
             return;
         }
@@ -97,7 +97,7 @@ public class SortedLinkedListFine implements SortedLinkedList {
                 start.getNext().setPrev(null);
             }
             start = start.getNext();
-            System.out.println("Lock released for deleting " + a);
+         //   System.out.println("Lock released for deleting " + a);
             dummyStart.getLock().unlock();
             return;
         }
@@ -119,7 +119,7 @@ public class SortedLinkedListFine implements SortedLinkedList {
 
         // not found
         if (curr == null) {
-            System.out.println("Lock released for deleting " + a);
+          //  System.out.println("Lock released for deleting " + a);
             prev.getLock().unlock();
             return;
         }
@@ -129,7 +129,7 @@ public class SortedLinkedListFine implements SortedLinkedList {
             prev.setNext(null);
             curr.setPrev(null);
 
-            System.out.println("Lock released for deleting " + a);
+          //  System.out.println("Lock released for deleting " + a);
             prev.getLock().unlock();
             curr.getLock().unlock();
             return;
@@ -139,7 +139,7 @@ public class SortedLinkedListFine implements SortedLinkedList {
         prev.setNext(curr.getNext());
         curr.getNext().setPrev(prev);
 
-        System.out.println("Lock released for deleting " + a);
+      //  System.out.println("Lock released for deleting " + a);
         prev.getLock().unlock();
         curr.getLock().unlock();
     }
@@ -220,7 +220,7 @@ public class SortedLinkedListFine implements SortedLinkedList {
             }
 
             // after locks acquired
-            System.out.println("Lock acquired for iterator");
+          //  System.out.println("Lock acquired for iterator");
             this.node = dummyStart.getNext(); // bypass dummy start
         }
 
@@ -237,7 +237,7 @@ public class SortedLinkedListFine implements SortedLinkedList {
         @Override
         public boolean isValid() {
             if (node == null){
-                System.out.println("Lock released for iterator");
+              //  System.out.println("Lock released for iterator");
                 Node it = dummyStart;
                 while (it != null){
                     it.getLock().unlock();
