@@ -1,57 +1,57 @@
-2017-11-03 18:50:56.176 Simulation started
-2017-11-03 18:50:56.197 T2 insertion#1 started 7.0
-2017-11-03 18:50:56.199 T3 deletion#1 started 7.0
-2017-11-03 18:50:56.200 T1 insertion#1 started 9.0
-2017-11-03 18:50:56.202 T3 deletion#1 ended 7.0
-2017-11-03 18:50:56.202 T2 insertion#1 ended 7.0
-2017-11-03 18:50:56.202 T3 deletion#2 started 3.0
-2017-11-03 18:50:56.202 T4 iteration start
-2017-11-03 18:50:56.202 T1 insertion#1 ended 9.0
-2017-11-03 18:50:56.202 T4 iteration ended ; [9.0]
-2017-11-03 18:50:56.202 T3 deletion#2 ended 3.0
-2017-11-03 18:50:56.213 T2 insertion#2 started 3.0
-2017-11-03 18:50:56.215 T3 deletion#3 started 0.0
-2017-11-03 18:50:56.216 T1 insertion#2 started 4.0
-2017-11-03 18:50:56.218 T3 deletion#3 ended 0.0
-2017-11-03 18:50:56.220 T2 insertion#2 ended 3.0
-2017-11-03 18:50:56.221 T3 deletion#4 started 4.0
-2017-11-03 18:50:56.223 T4 iteration start
-2017-11-03 18:50:56.224 T1 insertion#2 ended 4.0
-2017-11-03 18:50:56.226 T4 iteration ended ; [3.0, 9.0]
-2017-11-03 18:50:56.227 T3 deletion#4 ended 4.0
-2017-11-03 18:50:56.229 T2 insertion#3 started 0.0
-2017-11-03 18:50:56.231 T3 deletion#5 started 3.0
-2017-11-03 18:50:56.233 T1 insertion#3 started 6.0
-2017-11-03 18:50:56.234 T3 deletion#5 ended 3.0
-2017-11-03 18:50:56.235 T2 insertion#3 ended 0.0
-2017-11-03 18:50:56.235 T3 deletion#6 started 7.0
-2017-11-03 18:50:56.235 T3 deletion#6 ended 7.0
-2017-11-03 18:50:56.235 T4 iteration start
-2017-11-03 18:50:56.235 T1 insertion#3 ended 6.0
-2017-11-03 18:50:56.235 T4 iteration ended ; [0.0, 6.0, 9.0]
-2017-11-03 18:50:56.235 T3 deletion#7 started 3.0
-2017-11-03 18:50:56.235 T2 insertion#4 started 0.0
-2017-11-03 18:50:56.249 T2 insertion#4 ended 0.0
-2017-11-03 18:50:56.251 T3 deletion#7 ended 3.0
-2017-11-03 18:50:56.252 T1 insertion#4 started 4.0
-2017-11-03 18:50:56.254 T4 iteration start
-2017-11-03 18:50:56.254 T2 insertion#5 started 3.0
-2017-11-03 18:50:56.254 T1 insertion#4 ended 4.0
-2017-11-03 18:50:56.254 T2 insertion#5 ended 3.0
-2017-11-03 18:50:56.254 T4 iteration ended ; [0.0, 0.0, 4.0, 6.0, 9.0]
-2017-11-03 18:50:56.254 T1 insertion#5 started 8.0
-2017-11-03 18:50:56.254 T1 insertion#5 ended 8.0
-2017-11-03 18:50:56.266 T1 insertion#6 started 0.0
-2017-11-03 18:50:56.268 T1 insertion#6 ended 0.0
-2017-11-03 18:50:56.269 T1 insertion#7 started 2.0
-2017-11-03 18:50:56.271 T4 iteration start
-2017-11-03 18:50:56.272 T1 insertion#7 ended 2.0
-2017-11-03 18:50:56.274 T4 iteration ended ; [0.0, 0.0, 0.0, 2.0, 3.0, 4.0, 6.0, 8.0, 9.0]
-2017-11-03 18:50:56.278 T1 insertion#8 started 6.0
-2017-11-03 18:50:56.280 T1 insertion#8 ended 6.0
-2017-11-03 18:50:56.281 T1 insertion#9 started 2.0
-2017-11-03 18:50:56.282 T1 insertion#9 ended 2.0
-2017-11-03 18:50:56.283 T1 insertion#10 started 5.0
-2017-11-03 18:50:56.285 T1 insertion#10 ended 5.0
-2017-11-03 18:50:56.286 T4 iteration start
-2017-11-03 18:50:56.288 T4 iteration ended ; [0.0, 0.0, 0.0, 2.0, 2.0, 3.0, 4.0, 5.0, 6.0, 6.0, 8.0, 9.0]
+19:05:13.204 Simulation started
+19:05:13.216 T3 deletion#1 started 6.0
+19:05:13.217 T2 insertion#1 started 6.0
+19:05:13.218 T1 insertion#1 started 3.0
+19:05:13.220 T2 insertion#1 ended 6.0
+19:05:13.221 T3 deletion#1 ended 6.0
+19:05:13.223 T1 insertion#1 ended 3.0
+19:05:13.225 T2 insertion#2 started 6.0
+19:05:13.227 T3 deletion#2 started 6.0
+19:05:13.228 T4 iteration start
+19:05:13.229 T2 insertion#2 ended 6.0
+19:05:13.232 T4 iteration ended ; [3.0, 6.0]
+19:05:13.233 T1 insertion#2 started 1.0
+19:05:13.235 T1 insertion#2 ended 1.0
+19:05:13.237 T3 deletion#2 ended 6.0
+19:05:13.238 T2 insertion#3 started 9.0
+19:05:13.240 T2 insertion#3 ended 9.0
+19:05:13.242 T1 insertion#3 started 3.0
+19:05:13.243 T3 deletion#3 started 3.0
+19:05:13.245 T2 insertion#4 started 6.0
+19:05:13.246 T3 deletion#3 ended 3.0
+19:05:13.248 T1 insertion#3 ended 3.0
+19:05:13.249 T4 iteration start
+19:05:13.251 T3 deletion#4 started 6.0
+19:05:13.252 T2 insertion#4 ended 6.0
+19:05:13.254 T1 insertion#4 started 9.0
+19:05:13.255 T3 deletion#4 ended 6.0
+19:05:13.257 T4 iteration ended ; [1.0, 3.0, 6.0, 6.0, 9.0]
+19:05:13.258 T2 insertion#5 started 1.0
+19:05:13.261 T1 insertion#4 ended 9.0
+19:05:13.262 T3 deletion#5 started 1.0
+19:05:13.263 T3 deletion#5 ended 1.0
+19:05:13.265 T2 insertion#5 ended 1.0
+19:05:13.266 T1 insertion#5 started 6.0
+19:05:13.268 T3 deletion#6 started 0.0
+19:05:13.270 T3 deletion#6 ended 0.0
+19:05:13.271 T1 insertion#5 ended 6.0
+19:05:13.273 T4 iteration start
+19:05:13.275 T3 deletion#7 started 6.0
+19:05:13.277 T4 iteration ended ; [1.0, 3.0, 6.0, 6.0, 9.0, 9.0]
+19:05:13.277 T1 insertion#6 started 0.0
+19:05:13.280 T3 deletion#7 ended 6.0
+19:05:13.282 T1 insertion#6 ended 0.0
+19:05:13.287 T1 insertion#7 started 4.0
+19:05:13.289 T1 insertion#7 ended 4.0
+19:05:13.292 T4 iteration start
+19:05:13.293 T4 iteration ended ; [0.0, 1.0, 3.0, 4.0, 6.0, 9.0, 9.0]
+19:05:13.294 T1 insertion#8 started 8.0
+19:05:13.297 T1 insertion#8 ended 8.0
+19:05:13.302 T1 insertion#9 started 6.0
+19:05:13.303 T1 insertion#9 ended 6.0
+19:05:13.308 T4 iteration start
+19:05:13.309 T1 insertion#10 started 5.0
+19:05:13.309 T4 iteration ended ; [0.0, 1.0, 3.0, 4.0, 6.0, 6.0, 8.0, 9.0, 9.0]
+19:05:13.309 T1 insertion#10 ended 5.0
+19:05:13.326 T4 iteration start
+19:05:13.326 T4 iteration ended ; [0.0, 1.0, 3.0, 4.0, 5.0, 6.0, 6.0, 8.0, 9.0, 9.0]

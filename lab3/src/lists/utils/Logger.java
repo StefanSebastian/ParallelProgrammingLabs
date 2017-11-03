@@ -18,7 +18,7 @@ public class Logger {
     }
 
     public synchronized void logOperation(String operation){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss.SSS");
         Date now = new Date();
         operation = sdf.format(now)  + " " + operation;
 
