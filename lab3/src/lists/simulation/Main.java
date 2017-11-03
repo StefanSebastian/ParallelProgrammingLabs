@@ -177,7 +177,7 @@ public class Main {
        // getTimeForCoarse();
        // getTimeForFine();
 
-        runSimulation(new SortedLinkedListCoarse(), 10, 5, 7, 4, 4, 3, 12);
+        runSimulation(new SortedLinkedListFine(), 10, 5, 7, 4, 4, 2, 12);
 
 
        /* SortedLinkedList list = new SortedLinkedListFine();
