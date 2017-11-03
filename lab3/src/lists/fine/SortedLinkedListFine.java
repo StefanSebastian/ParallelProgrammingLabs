@@ -146,7 +146,7 @@ public class SortedLinkedListFine implements SortedLinkedList {
 
     @Override
     public IIterator getIterator() {
-        return new Iterator(start);
+        return new Iterator(dummyStart);
     }
 
     public class Node {
@@ -207,10 +207,22 @@ public class SortedLinkedListFine implements SortedLinkedList {
     }
 
     public class Iterator implements IIterator {
+        private Node dummyStart;
         private Node node;
 
+        // lock all nodes
         public Iterator(Node node){
-            this.node = node;
+            this.dummyStart = node;
+
+            Node it = node;
+            while (it != null){
+                it.getLock().lock();
+                it = it.getNext();
+            }
+
+            // after locks acquired
+            System.out.println("Started iteration");
+            this.node = node.getNext(); // bypass dummy start
         }
 
         @Override
@@ -225,6 +237,13 @@ public class SortedLinkedListFine implements SortedLinkedList {
 
         @Override
         public boolean isValid() {
+            if (node == null){
+                System.out.println("Finished iteration");
+                while (dummyStart != null){
+                    dummyStart.getLock().unlock();
+                    dummyStart = dummyStart.getNext();
+                }
+            }
             return node != null;
         }
     }

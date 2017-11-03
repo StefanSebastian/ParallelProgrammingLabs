@@ -15,19 +15,24 @@ public class Printer implements Runnable {
     private SortedLinkedList list;
     private Long sleepTime;
     private Logger logger;
+    private Logger iterationLogger;
 
     private volatile boolean running = true;
 
-    public Printer(String name, SortedLinkedList list, Long sleepTime, Integer iterations, Logger logger) {
+    public Printer(String name, SortedLinkedList list, Long sleepTime, Logger logger, Logger iterationLogger) {
         this.name = name;
         this.list = list;
         this.sleepTime = sleepTime;
         this.logger = logger;
+        this.iterationLogger = iterationLogger;
     }
 
     @Override
     public void run() {
+        int itNumber = 0;
         while(running) {
+            itNumber++;
+
             try {
                 Thread.sleep(sleepTime);
             } catch (InterruptedException e) {
@@ -44,6 +49,7 @@ public class Printer implements Runnable {
             }
 
             logger.logOperation(name + " iteration ended ; " + itRes);
+            iterationLogger.logOperation("iteration " + itNumber + " res : " + itRes);
         }
     }
 
